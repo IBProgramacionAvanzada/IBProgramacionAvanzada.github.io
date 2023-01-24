@@ -1,9 +1,9 @@
 ---
 title: Contact
-author: Tao He
+author: Flavio Colavecchia
 date: 2022-02-05
-category: Jekyll
+category: Programming
 layout: post
 ---
 
-This is an contact page.
+Contact me at [fcolavecchia@gmail.com](fcolavecchia@gmail.com), or check more content at [impresiones digitales](flavio.colavecchia.net).

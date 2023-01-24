@@ -1,9 +1,9 @@
 ---
 title: About
-author: Tao He
+author: Flavio Colavecchia
 date: 2022-02-04
-category: Jekyll
+category: Programming
 layout: post
 ---
 
-This is an about page.
+This is a course on functional programming using F#. 
