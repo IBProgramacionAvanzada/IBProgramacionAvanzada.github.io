@@ -145,10 +145,10 @@
 /* Custom font settings */
 
 .book.font-family-0 {
-    font-family: Georgia, serif;
+    font-family: "Nunito Sans", serif;
 }
 .book.font-family-1 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Nunito Sans", Helvetica, Arial, sans-serif;
 }
 
 /* Render wide tables */
