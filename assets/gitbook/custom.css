@@ -1,5 +1,8 @@
 ---
 ---
+h1, h2 {
+    font-family: 'Cormorant Garamond', serif;
+}
 
 .book-body {
     overflow-y: scroll;
