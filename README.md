@@ -21,7 +21,7 @@ Para cualquier lenguaje moderno es necesario contar con un editor potente que pe
 Mientras que el primero ofrece [una versión web](https://vscode.dev/) que no requiere de instalación, el segundo es un editor pago, pero que [puede usarse gratis para educación](https://www.jetbrains.com/community/education/#students). 
 
 ### Textos
-Eventualmente se pedirá la entrega de algún ejercicio escrito que no sea un programa. Para ello utilizamos [Markdown](https://www.argentina.gob.ar/contenidosdigitales/escribir-en-markdown/markdown-basico) que posee una sintaxis simple, aunque permite agregar ecuaciones ($f(x) = x +1 $ ) en LaTeX.
+Eventualmente se pedirá la entrega de algún ejercicio escrito que no sea un programa. Para ello utilizamos [Markdown](https://www.argentina.gob.ar/contenidosdigitales/escribir-en-markdown/markdown-basico) que posee una sintaxis simple, aunque permite agregar ecuaciones $$f(g(x)) = g(x)+1$$ en LaTeX.
 
 
 
