@@ -50,6 +50,18 @@ collections:
   pages:
     output: true
     permalink: /:collection/:path/
+  fsharp:
+    output: true
+    permalink: /:collection/:path/
+    order:
+      - Intro.md
+      - Fundamentals_new.md
+      - Functions_new.md
+      - IntroToTypes_new.md
+      - DiscriminatedUnions_new.md
+      - Records_new.md 
+      - resources_new.md 
+
 
 page_width: 800px
 
