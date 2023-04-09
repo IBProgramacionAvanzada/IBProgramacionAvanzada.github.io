@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Thinking with types
+title:  1. Thinking with types
 tagline: To completely define a function, you not only need to establish its behavior, but also its inputs and outputs. 
 categories: 
 - F# as your first functional programming language

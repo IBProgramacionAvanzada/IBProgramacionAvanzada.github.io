@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Records
+title:  1. Records
 tagline: Dealing with entities that do not belong to well predefined group of cases.
 categories: 
 - F# as your first functional programming language

@@ -1,14 +1,14 @@
 ---
 layout: post
-title: F# as your first functional programming language 
+title: My road to F#  
 date: 2023-01-21
 categories: 
-- Programming
+- F# as your first functional programming language
 tags:
 - fsharp
 ---
 
-## My road to F\# 
+<!-- ## My road to F#  -->
 
 Long ago I heard about functional programming. 
 

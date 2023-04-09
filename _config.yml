@@ -57,9 +57,9 @@ collections:
       - Intro.md
       - Fundamentals_new.md
       - Functions_new.md
-      - IntroToTypes_new.md
-      - DiscriminatedUnions_new.md
-      - Records_new.md 
+      # - IntroToTypes_new.md
+      # - DiscriminatedUnions_new.md
+      # - Records_new.md 
       - resources_new.md 
 
 

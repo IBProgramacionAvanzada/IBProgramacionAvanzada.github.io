@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  F\# types exercises
+title:  1. F\# types exercises
 tagline: Some gentle exercises to start working with domains.
 categories: 
 - F# as your first functional programming language

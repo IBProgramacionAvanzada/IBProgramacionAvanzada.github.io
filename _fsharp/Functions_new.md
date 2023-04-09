@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  So what is a function anyway?
+title: So what is a function anyway?
 tagline: Since we are about to learn functional programming, we need to agree in what a _function_ is in this context. 
 categories: 
 - F# as your first functional programming language
