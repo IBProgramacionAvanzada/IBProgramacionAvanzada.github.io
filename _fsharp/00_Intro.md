@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is F# 
+title: ¿Qué es F#?
 date: 2023-01-21
 categories: 
 - F# as your first functional programming language
@@ -8,37 +8,29 @@ tags:
 - fsharp
 ---
 
+[F# ](https://dotnet.microsoft.com/en-us/languages/fsharp) (también escrito como fsharp cuando el signo numeral no es bienvenido) es un lenguaje creado en [Microsoft](https://docs.microsoft.com/en-us/dotnet/fsharp/) por [Don Syme](@dsymetweets). Fue descrito como un lenguaje de programación _functional-first_, aunque en la última iteración, el lema fue cambiado a _a universal programming language for writing succinct, robust and performant code_.  Al igual que muchos otros lenguajes (como Java), se creó originalmente como un esfuerzo corporativo dentro de Microsoft, pero afortunadamente se convirtió en [open sourced] (https://github.com/dotnet/fsharp), con la gran ventaja de que existe un gran ecosistema de herramientas y bibliotecas construidas sobre .NET entre las que elegir.   Puedes leer la historia del lenguaje [aquí](https://fsharp.org/history/hopl-final/hopl-fsharp.pdf).
 
+## Por qué F# 
 
-[F# ](https://dotnet.microsoft.com/en-us/languages/fsharp) (also written as fsharp when the numeral sign is not welcomed) is a language created in [Microsoft](https://docs.microsoft.com/en-us/dotnet/fsharp/) by [Don Syme](@dsymetweets). It was described as a _functional-first_ programming language, albeit in the last iteration, the tag line was changed to _a universal programming language for writing succinct, robust and performant code_.  As many other languages (such as Java), it was build originally as a corporate endeavor inside Microsoft, but fortunately became [open sourced](https://github.com/dotnet/fsharp),  with the great benefit that there is a large ecosystem of tools and libraries built over .NET to choose from.   You can read a the history of the language [here](https://fsharp.org/history/hopl-final/hopl-fsharp.pdf).
+Aquí hay algunas características que F# exhibe como _un lenguaje_:
 
-## Why F# 
+### Es un lenguaje multi paradigma
 
-Here are some features that F# exhibits as _a language_:
+Cuando se programa en F# se presentará _primero_ un enfoque funcional, que puede ser fácilmente extendido para incluir estilos orientado a objetos y/o imperativo. Se puede mezclar y combinar paradigmas según las necesidades específicas del código.  
 
-### It is a multi paradigm language
+### F# es un lenguaje fuertemente tipado
 
-When coding in F# you will be presented with a functional approach _first_, that can be easily extended to include object oriented and/or imperative ones. You can mix and match paradigms according to the specific needs of your code.  
+Esto significa que uno necesita saber de antemano qué tipo de valor está guardando en cada expresión (Nótese que _no_ estoy hablando de _variables_. Más sobre esto más adelante). Sin embargo, la experiencia habitual al programar en F\# con un IDE moderno es que no se programa en solitario, el compilador es un amigo que está continuamente inspeccionando lo que estás escribiendo, y decide si la definición de tipo apropiada es explícitamente necesaria o no. En la gran mayoría de las líneas de código no se necesita establecer el tipo de los datos y se infiere correctamente, pero es muy útil hacerlo para tus compañeros de equipo o para tu futuro yo.
 
-### F# is a strongly typed language
+### F# es un lenguaje compilado
 
-This means that one needs to know in advance what kind of value one is saving in each expression (Note that I am _not_ talking about _variables_. More on that later.). _However_, the usual experience when programming in F\# with a modern IDE is that your are not coding alone, the compiler is your friend and it continuously surveys what you are writing, and decides whether or not the proper type definition is explicitly needed. In the vast majority of lines of code you will not need to set the type of data and it is properly inferred, but it is very helpful to do so for your team coworkers or your future you.
+Estarás tratando con el habitual _loop_ editar-compilar-ejecutar. Para más detalles sobre cómo funciona el proceso de compilación dentro de .NET, consulta este [enlace](https://docs.microsoft.com/en-us/dotnet/standard/clr).  Pero, el lenguaje viene con consola donde [se puede programar interactivamente](https://learn.microsoft.com/en-us/dotnet/fsharp/tools/fsharp-interactive/). Además, si estás acostumbrado a escribir código en un [_notebook_](https://jupyter.org/), ¡se puede cargar un _kernel_ de F\# y usarlo! 
 
-### F# is a compiled language
+Estas son algunas de las ventajas que se obtienen porque _F# forma parte de .NET_:
 
-You will be dealing with the usual edit-build-test-run loop. For details on how the compilation process works within .NET, check this [link](https://docs.microsoft.com/en-us/dotnet/standard/clr).  _But_, the language comes with console where [you can code interactively](https://learn.microsoft.com/en-us/dotnet/fsharp/tools/fsharp-interactive/). Moreover, if you are used to script code in a [notebook](https://jupyter.org/), you can attach an F\# kernel and use it! 
-
-Here are some of the benefits that you get because _F# is part of the .NET_:
-
-- It is fully cross-platform.
-- .NET is a vast library.
-- It is easy to integrate with other .NET languages, such as C# or VB.
-- It is open source.
-- There are great tools available to develop in F#.
-- It has a huge and friendly community.
-
-
- 
-
-
-
+- Es totalmente multiplataforma.
+- .NET es una amplia biblioteca.
+- Es fácil de integrar con otros lenguajes .NET, como C# o VB.
+- Es de código abierto.
+- Hay grandes herramientas disponibles para desarrollar en F#.
+- Tiene una comunidad enorme y amigable.

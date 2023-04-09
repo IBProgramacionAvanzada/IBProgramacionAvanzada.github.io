@@ -1,6 +1,6 @@
 ---
 layout: post
-title: F# as your first functional programming language
+title: Index
 date: 2022-12-18
 categories: 
 - Programming
