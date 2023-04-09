@@ -54,13 +54,13 @@ collections:
     output: true
     permalink: /:collection/:path/
     order:
-      - Intro.md
-      - Fundamentals_new.md
-      - Functions_new.md
+      - 00_Intro.md
+      - 01_Fundamentals_new.md
+      - 02_Functions_new.md
       # - IntroToTypes_new.md
       # - DiscriminatedUnions_new.md
       # - Records_new.md 
-      - resources_new.md 
+      - 999_resources.md 
 
 
 page_width: 800px

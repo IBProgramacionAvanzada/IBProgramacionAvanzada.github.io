@@ -1,14 +1,13 @@
 ---
 layout: post
-title: F# as your first functional programming language
-date: 2023-01-21
+title: Resources 
 categories: 
-- Programming
+- F# as your first functional programming language
+date: 2023-01-21
 tags:
 - fsharp
 ---
 
-## F# Resources
 
 This is an opinionated list of web resources and books that helped me with F\#. These are books and sites I use frequently, for a more
 a complete list of resources, check [the list of the F\# Foundation](https://fsharp.org/learn/) and [the learning resources in Microsoft .NET site](https://dotnet.microsoft.com/en-us/learn/fsharp).
