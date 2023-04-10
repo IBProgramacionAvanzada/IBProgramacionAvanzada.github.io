@@ -82,7 +82,7 @@ un paquete de galletas puede costar 123,75\$.
 Pero también hay productos que se venden por peso, como un kilo de manzanas o naranjas.
 Además, se ven frecuentemente algunas promociones como:
 
-- Si lleva dos del mismo producto, 70\% de descuento en la segunda unidad.
+- Si lleva dos del mismo producto, 70% de descuento en la segunda unidad.
 - Una lata de atún puede estar de oferta, llevando tres , paga por dos.
 - O puede ser que por 1000 pesos uno pueda llevarse tres paquetes de yerba.
 
