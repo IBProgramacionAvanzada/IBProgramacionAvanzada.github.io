@@ -12,9 +12,11 @@ El curso apunta a exponer al estudiante a un lenguaje de programación funcional
 
 ## Aspectos prácticos
 
-### Link
+### Links
 
-El link con la documentación del curso es [https://tinyurl.com/ibadv](https://tinyurl.com/ibadv).
+La documentación del curso está acá [https://tinyurl.com/ibadv](https://tinyurl.com/ibadv).
+
+Para empezar, podemos programar en F# en [Fable Repl](https://fable.io/repl/).
 
 ### `Git`
 
@@ -34,7 +36,7 @@ Mientras que el primero ofrece [una versión web](https://vscode.dev/) que no re
 
 Eventualmente se pedirá la entrega de algún ejercicio escrito que no sea un programa. Para ello utilizamos [Markdown](https://www.argentina.gob.ar/contenidosdigitales/escribir-en-markdown/markdown-basico) que posee una sintaxis simple, aunque permite agregar ecuaciones $$f(g(x)) = g(x)+1$$ en LaTeX.
 
-### Jupyter notebooks
+<!-- ### Jupyter notebooks
 
 > Veremos esto a partir de la clase 1.
 
@@ -61,7 +63,7 @@ y elegir F#
 
 ![I want F#](/img/i-want-fsharp.png). 
 
-El resto es usar el notebook como en Python.
+El resto es usar el notebook como en Python. -->
 
 
 
@@ -74,18 +76,13 @@ El resto es usar el notebook como en Python.
     - Composición
     - Aplicación parcial
 
-1. Funciones
+1. Tipos 
     - Instalación de herramientas.
-    - Ejemplos de funciones
-    - Composición
-    - Aplicación parcial
-
-2. Tipos
     - Tipos algebraicos
     - Tipo Suma, _Discriminated Unions_
     - Tipo Producto, _Records_ 
 
-3. Control de flujo
+<!-- 3. Control de flujo
     - La expresión `if`
     - Más sobre _pattern matching_ 
     - Recursión     
@@ -109,7 +106,7 @@ El resto es usar el notebook como en Python.
 8. .NET
     - Organizando el código en módulos, proyectos y soluciones
     - Testing 
-
+ -->
 
 
 

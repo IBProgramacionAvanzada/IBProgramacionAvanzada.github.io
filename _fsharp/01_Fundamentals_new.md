@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Fundamentals
-tagline: These guides are oriented to those progammers interested in learning some concepts on F\# functional programming, from a practical perspective.
+title: Fundamentos
+date: 2023-01-21
 categories: 
 - F# as your first functional programming language
 tags:
@@ -9,109 +9,104 @@ tags:
 ---
 
 
-### In preparation for take off
 
-F\# is an excelent _first_ functional programming language: it is functional (of course), it has a clean and readable syntax (not a lot of fancy symbols and stuff), it is flexible (in case you need to grasp some other paradigm in the middle of your code) and it is concise enough to express your ideas with clarity. 
+### En preparación para el despegue
 
-Learning a new language _and_ a new programming paradigm is a wonderful adventure. You do not need any special preparation, although I assume that the reader has some background in at least one popular language (let us say C, Python, Java or JavaScript, for example). Hope you enjoy your journey as much as I did when I started with F\# a few years ago. Rembember to code and make mistakes, for there is where the learning transforms. 
+Estas guías están orientadas a aquellos programadores interesados ​​en aprender algunos conceptos sobre programación funcional en F\#, desde una perspectiva práctica. F\# es un excelente lenguaje de programación _first_ funcional: es funcional (por supuesto), tiene una sintaxis limpia y legible (sin muchos símbolos sofisticados y demás), es flexible (en caso de que necesite comprender algún otro paradigma en medio de su código) y es lo suficientemente conciso para expresar sus ideas con claridad.
 
-F\#, as every other computer language, has it own syntax and peculiarities that one needs to understand. But learning the functional paradigm requires to set aside a few concepts that one is very fond of and uses in everyday coding in imperative or object oriented languages. 
+Aprender un nuevo lenguaje _y_ un nuevo paradigma de programación es una aventura maravillosa. No necesita ninguna preparación especial, aunque supongo que el lector tiene experiencia en al menos un lenguaje popular (digamos C, Python, Java o JavaScript, por ejemplo). Espero que disfrutes tu viaje tanto como yo lo hice cuando comencé con F\# hace unos años. Recuerda programar y cometer errores, pues ahí es donde se transforma el aprendizaje.
 
-> This difference has profound roots at the very origin of computing science.
-> In the beginning, there where two mutually equivalent approaches to formal computing, one developed by Alan Turing with his [computing machine](https://londmathsoc.onlinelibrary.wiley.com/doi/epdf/10.1112/plms/s2-42.1.230), while the other one was worked out by Alonzo Church with his [lambda calculus](https://www.jstor.org/stable/2371045?origin=crossref&seq=10#metadata_info_tab_contents). Both approaches evolved in parallel, and gave rise to different branches of programming styles. 
-> Functional programming is by no means new. LISP, the first functional programming language appeared in 1958, just a year shy of its 
-> imperative counterpart, Fortran.
-> 
-> In a very loose sense, learning a functional language is like travelling in time, going back through the imperative branch of  programming and taking the other exit in the roundabout.
+F\#, como cualquier otro lenguaje informático, tiene su propia sintaxis y peculiaridades que es necesario comprender. Pero aprender el paradigma funcional requiere dejar de lado algunos conceptos que a uno le gustan mucho y que usa en la programación diaria en lenguajes imperativos u orientados a objetos.
 
-Even though you do not finally adopt the functional paradigm, adding a new language style to your assets will give you the experience to revisit old programming habits with new eyes, giving a deeper understanding, and more fine tuning to your code. You will become a better programmer, definetly!
+> Esta diferencia tiene profundas raíces en el mismo origen de la informática.
+> Al principio, había dos enfoques de computación formal mutuamente equivalentes, uno desarrollado por Alan Turing con su [computing machine](https://londmathsoc.onlinelibrary.wiley.com/doi/epdf/10.1112/plms/s2-42.1.230), mientras que el otro fue desarrollado por Alonzo Church con su [computing machine](https://londmathsoc.onlinelibrary.wiley.com/doi/epdf/10.1112/plms/s2-42.1.230). Ambos enfoques evolucionaron en paralelo y dieron lugar a diferentes ramas de estilos de programación.
+> La programación funcional no es nueva en absoluto. LISP, el primer lenguaje de programación funcional apareció en 1958, apenas un año antes de su
+> contrapartida imperativa, Fortran.
+>
+> En un sentido muy amplio, aprender un lenguaje funcional es como viajar en el tiempo, retroceder por la rama imperativa de la programación y tomar la otra salida de la rotonda.
 
-F\# is one of the languages provided by the .NET framework (together with C# and Visual Basic). As such, F\# is tighly integrated with all the tools and libraries that .NET provides. But in this approach, I will view .NET as the set of libraries that one can use to enhance your code. In other words, I will stay away from using them, and focusing in the core features of F\# as a functional language. From Web programming to Machine Learning, from databases to windows, .NET has everything you need to make your programming a better experience, once you know the core features F\# provides. 
+Aunque finalmente no adopte el paradigma funcional, agregar un nuevo estilo de lenguaje a sus activos le brindará la experiencia para revisar viejos hábitos de programación con nuevos ojos, brindando una comprensión más profunda y un ajuste más fino de su código. ¡Te convertirás en un mejor programador, definitivamente!
 
-Also, my aim is to keep it as simple as possible, because I would like the reader to have the fundamental set of tools from the language to play with. To that end, some concepts are left aside on purpose, and will be revealed in the future. 
+F\# es uno de los lenguajes proporcionados por .NET (junto con C# y Visual Basic). Como tal, F\# está estrechamente integrado con todas las herramientas y bibliotecas que proporciona .NET. Pero en este enfoque, veremos a .NET como el conjunto de bibliotecas que uno puede usar para mejorar su código. En otras palabras, me mantendré al principio alejado de usarlos y me centraré en las características principales de F\# como lenguaje funcional. Desde la programación web hasta el aprendizaje automático, desde bases de datos hasta Windows, .NET tiene todo lo que necesita para que su programación sea una mejor experiencia, una vez que conozca las características principales que proporciona F\#.
 
-> If you are a C# programmer, you will probably get a better mileage going into some of the excellent resources of F\# for C# coders, such as [Get programming with F\#](https://www.manning.com/books/get-programming-with-f-sharp#:~:text=about%20the%20book-,Get%20Programming%20with%20F%23%3A%20A%20guide%20for%20.,of%20functional%20programming%20in%20F%23.) 
+Además, mi objetivo es mantenerlo lo más simple posible, porque me gustaría que el lector tenga el conjunto fundamental de herramientas del idioma para jugar. Con ese fin, algunos conceptos se dejan de lado a propósito y se revelarán en el futuro.
 
-
-## Tools
-
-This series is about the fundamentals of F\# programming, and none of the examples need even to install F\#. You can simply code along in your web browser of your choice, heading to the [Fable REPL](https://fable.io/repl/). Just write your code in the left panel, click the usual play button (or Alt+Enter), and there you go, you are programming in F\#!.
-
-You can also install the F\# language and use your everyday editor, but you will need to install the [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0), available for Windows, Linux and macOS.  
-
-Besides, this series is written as [Jupyter notebooks](https://jupyter.org/). You can grab them at [this github repository](https://github.com/fcolavecchia/fp-course). Instructions on how to set up F\# as a Notebook kernel can be found [here](https://github.com/dotnet/interactive/blob/main/docs/NotebookswithJupyter.md). 
-
-[Visual Studio Code](https://code.visualstudio.com/) has a wonderful extension called [Ionide](https://ionide.io/Editors/Code/overview.html) to work with F\#. I personally use JetBrains Rider for my daily coding which supports F\#.
-
-You can also use F\# with Visual Studio for Windows or MacOS, if you are familiar with that tool. 
-
-Moreover, if you want to code F\# with `vim`, [Ionide also gets you covered](https://ionide.io/Editors/Vim/overview.html).
+> Si eres un programador de C#, probablemente obtendrás un mejor rendimiento al utilizar algunos de los excelentes recursos de F\# para programadores de C#, como [Get programming with F\#](https://www.manning.com/books/get-programming-with-f-sharp#:~:text=about%20the%20book-,Get%20Programming%20with%20F%23%3A%20A%20guide%20for%20.,of%20functional%20programming%20in%20F%23.)
 
 
+## Herramientas
+
+Esta serie trata sobre los fundamentos de la programación de F\#, y ninguno de los ejemplos necesita siquiera instalar F\#. Simplemente puede programar en su navegador web de su elección, dirigiéndose a [Fable REPL](https://fable.io/repl/). Simplemente escriba su código en el panel izquierdo, haga clic en el botón de reproducción habitual (o Alt+Enter) y ya está, ¡está programando en F\#!.
+
+También puede instalar el lenguaje F\# y usar su editor diario, pero deberá instalar [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0), disponible para Windows, Linux y macOS.
+
+Además, esta serie está escrita como [Jupyter notebooks](https://jupyter.org/). Puede obtenerlos en [este repositorio de Github](https://github.com/fcolavecchia/fp-course). Las instrucciones sobre cómo configurar F\# como kernel de Notebook se pueden encontrar en [acá](https://github.com/dotnet/interactive/blob/main/docs/NotebookswithJupyter.md). .
+
+[Visual Studio Code](https://code.visualstudio.com/) tiene una extensión llamada [Ionide](https://ionide.io/Editors/Code/overview.html) para trabajar con F\#. Yo personalmente uso JetBrains Rider para mi programación diaria que admite F\#.
+
+También puede usar F\# con Visual Studio para Windows o MacOS, si está familiarizado con esa herramienta.
+
+Además, si desea programar F\# con `vim`, [Ionide también está disponible para `vim`](https://ionide.io/Editors/Vim/overview.html).
 
 
-### `let` the fun begin 
 
-Any code you write will need data. 
 
-Any code you write will do _something_ with that data. 
+### Comenzando la diversión con `let`
 
-So the first step in a new language is to learn how to define a way to hold your data, and how to transform it along the program. These concepts usually translates into _variables_ and _routines_, (or any other name, such as procedures, or functions, depending your programming scope), respectively. In this way, one uses routines to change the variables, or create other ones, from an order to buy something in a website, to the color of a pixel in your game of preference. 
+Cualquier código que escriba necesitará datos.
 
-But let us go back and start with _expressions_. An expression is an ordered set of symbols that may represent different entities in the code. Pretty much like a sentence in a human language, an expression has to have a valid syntax (nobody will understand me if. I use the. period wrong.) and also has to be meaningful (I a example for if me nobody of sentence sort the understand will words). The compiler, however, is much more strict with the rules and does not allow such poems. Why? Because the compiler needs to grab the expression, process it and obtain a _value_. So the value is the result of the evaluation of an expression. 
+Cualquier código que escriba hará _algo_ con esos datos.
 
-And since every expression results in a value, one needs to manage all these values that will be appearing as the code runs, identify and use them as one sees fit. To that end, F\# uses several _keywords_, and one of them is `let`. 
+Entonces, el primer paso en un nuevo lenguaje es aprender cómo definir una forma de almacenar sus datos y cómo transformarlos a lo largo del programa. Estos conceptos generalmente se traducen en _variables_ y _rutinas_ (o cualquier otro nombre, como procedimientos o funciones, según el alcance de su programación), respectivamente. De esta forma, uno usa rutinas para cambiar las variables, o crear otras, desde una orden para comprar algo en un sitio web, hasta el color de un píxel en tu juego de preferencia.
 
-In F\# one says that `let` _binds_ an expression to an identifier. For example
+Pero volvamos atrás y comencemos con _expresiones_. Una expresión es un conjunto ordenado de símbolos que pueden representar diferentes entidades en el código. Casi como una oración en un lenguaje humano, una expresión debe tener una sintaxis válida (nadie me entenderá si uso mal el punto) y también debe ser significativa (yo un ejemplo para si yo nadie del tipo de oración las palabras comprenderán). El compilador, sin embargo, es mucho más estricto con las reglas y no permite este tipo de poemas. ¿Por qué? Porque el compilador necesita captar la expresión, procesarla y obtener un _valor_. Entonces el valor es el resultado de la evaluación de una expresión.
+
+Y dado que cada expresión da como resultado un valor, uno debe administrar todos estos valores que aparecerán a medida que se ejecuta el código, identificarlos y usarlos como mejor le parezca. Para ello, F\# utiliza varias _palabras clave_, y una de ellas es `let`.
+
+En F\# se dice que `let` _vincula_ una expresión a un identificador. Por ejemplo
 
 
 ```fsharp
-// This is my first line in F#, which is a comment ¯\_(シ)_/¯
-let j = 1 // an integer 
+// Mi primer línea en F# es un comentario ¯\_(シ)_/¯
+let j = 1 // un entero 
 ```
 
-binds the literal expression `1` to the name `a`. On the right hand side of the `=` symbol (that acts here as a binding operator), one can have any valid expression:
+une la expresión literal `1` al nombre `a`. En el lado derecho del símbolo `=` (que actúa aquí como un operador vinculante), uno puede tener cualquier expresión válida:
 
 ```fsharp
-let a = 1.0 + 3.0 // floats 
+let a = 1.0 + 3.0 // punto flotante 
 let s = "this is a string" 
-let l = [1 ; 2 ; 3] // A list of integers 
-let m = ("Messi",10) // A tuple of a string and a number 
-let t = true // A bool 
+let l = [1 ; 2 ; 3] // una lista de enteros
+let m = ("Messi",10) // Una tupla de un string y un entero
+let t = true // Un tipo lógico (booleano)
 ```
 
-and so on. Of course one can associate a previous binding with a new one through an expression:
+etcétera. Por supuesto, uno puede asociar un identificador usado antes con uno nuevo a través de una expresión:
 
 ```fsharp
 let b = a + 4.0 
 ```
 
-In the line above, we add four to `a` and bind the result of this expression to the `b` identifier. 
+En la línea anterior, agregamos cuatro a `a` y vinculamos el resultado de esta expresión al identificador `b`.
 
-### Immutability
+### Inmutabilidad
 
-However, you cannot bind an expression to an identifier that has already been used:
+Sin embargo, no puede vincular una expresión a un identificador que ya se ha utilizado:
 
 ```fsharp
 let q = 3
 let q = q + 1
 ```
 
-
-    input.fsx (2,5)-(2,6) typecheck error Duplicate definition of value 'q'
-
-
-which answers why one does not use the term _variable_ in F\#: once the value of an expression is obtained, it cannot be changed. In other words, all the values are _immutable_: once there, they cannot be changed. There are no variables in the language, because there is nothing to _vary_. You can create as many values as you want, but you cannot change them: 
+lo que responde por qué no se usa el término _variable_ en F\#: una vez que se obtiene el valor de una expresión, **no se puede cambiar**. En otras palabras, todos los valores son _inmutables_: una vez allí, no se pueden cambiar. No hay variables en el idioma, porque no hay nada que _varíe_. Puede crear tantos valores como desee, pero no puede cambiarlos:
 
 ```fsharp
 let q = 3
 let qq = q + 1
 ```
 
-The implications of this are deep and it is very important to let the concept mature and sink in, because it percolates all the code in F\# (and any other functional language). In some way, since everything is an expression, coding in F\# is mananging the expressions that solve our problem. You name an expression (that is, you bind it to an identifier), use it in another expression, bind its value to a new identifier and so on an so on.
+Las implicaciones de esto son profundas y es muy importante dejar que el concepto madure y se asiente, porque permea todo el código en F\# (y cualquier otro lenguaje funcional). De alguna manera, como todo es una expresión, programar en F\# es gestionar las expresiones para que resuelven nuestro problema. Se nombra una expresión (es decir, la vincula a un identificador), se la usa en otra expresión, se vincula su valor a un nuevo identificador y así sucesivamente.
 
-The perspective of a code as a long list of `let` bindings is kind of daunting. That is where functions come in.
+La perspectiva de un código como una larga lista de enlaces `let` es un poco desalentadora. Ahí es donde entran las funciones.
 
-> Checkout [the Jupyter notebook companion of this guide](https://github.com/fcolavecchia/fp-course/blob/main/en/Fundamentals.ipynb).
-
-
+<!-- > Aquí está el [Jupyter notebook de esta guía](https://github.com/fcolavecchia/fp-course/blob/main/en/Fundamentals.ipynb). -->
