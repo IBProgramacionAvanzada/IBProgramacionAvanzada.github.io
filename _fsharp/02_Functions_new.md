@@ -1,124 +1,123 @@
 ---
 layout: post
-title: So what is a function anyway?
-tagline: Since we are about to learn functional programming, we need to agree in what a _function_ is in this context. 
+title: ¿Qué es una función?
+date: 2023-01-21
 categories: 
 - F# as your first functional programming language
 tags:
 - fsharp
 ---
 
- Let us start with a set of entities, for example, the cars parked in a given block of a street. One can identify each car by its license plate, and then build a table with two columns: the first one with the license plate, and the second one with the corresponding the color of each car:
+Ya que estamos a punto de aprender programación funcional, necesitamos estar de acuerdo en qué es una _función_ en este contexto. Comencemos con un conjunto de entidades, por ejemplo, los autos estacionados en un cuadra dada de una calle. Se puede identificar cada auto por su placa, y luego construir una tabla con dos columnas: la primera con la placa y la segunda con el color correspondiente a cada auto:
 
-| Lic. Plate | Color         | 
+| Lic. Placa | Color |
 | :----------: |:-------------:|
-| ABC 124 | black |
-| DEF 350 | red   |
-| QRZ 441 | black |
-| JPG 255 | white | 
+| ABC 124 | negro |
+| DEF 350 | rojo |
+| QRZ 441 | negro |
+| JPG 255 | blanco |
 
-That's a function that we can call `carColor`, that associates each car of the block with its color. The table is a representation of that function. A function from a set of entities A to a set of entities B is then a relation that associates elements between the sets A and B, with the property that each and every element of A has a one and only one corresponding element of B. 
+Esa es una función que podemos llamar `carColor`, que asocia cada auto del cuadra con su color. La tabla es una representación de esa función. Una función de un conjunto de entidades A a un conjunto de entidades B es entonces una relación que asocia elementos entre los conjuntos A y B, con la propiedad de que todos y cada uno de los elementos de A tienen un único elemento correspondiente de B.
 
-There are two things to note. First, a function is defined _from_ one set _to_ another set, in our example, from the set of license plates to the set of colors. To get the color of a particular car, you go to the table representation of the function, look up the plate in the column of license plates, and get the color from the second column. With this in mind, one can identify the _from_ set as the _input_ of the function, while the _to_ set is the _output_. 
+Hay dos cosas a tener en cuenta. Primero, se define una función _de_ un conjunto _a_ otro conjunto, en nuestro ejemplo, del conjunto de matrículas al conjunto de colores. Para obtener el color de un automóvil en particular, vaya a la tabla de representación de la función, busque la placa en la columna de placas y obtenga el color de la segunda columna. Con esto en mente, se puede identificar el conjunto _desde_ como la _entrada_ de la función, mientras que el conjunto _a_ es la _salida_.
 
-Second, all elements of the input must relate to some element in the output set. In our example, every car in the block has a color assigned in the table. This means that there cannot be empty cells in the second column of our table. 
+En segundo lugar, todos los elementos de la entrada deben relacionarse con algún elemento del conjunto de salida. En nuestro ejemplo, cada automóvil en el cuadra tiene un color asignado en la tabla. Esto significa que no puede haber celdas vacías en la segunda columna de nuestra tabla.
 
-> ❓ Can you come up with more examples of functions in the real world? 
+> ❓ ¿Se te ocurren más ejemplos de funciones en el mundo real?
 
-In math, functions are ubiquitous. Let us assume that $x$ is a real number, and define the function
-
-$$
-f(x) = x + 1, 
-$$
-
-that is, the function that returns the value $x$ plus one. The input set (which is called the _domain_ of the function in math) is the set of all real values, $\mathbb{R}$, while the output set (the _codomain_ in math) is also $\mathbb{R}$, because adding one to any real number is also another real number. Using the _arrow_ notation, the complete definition of the function would be
+En matemáticas, las funciones son ubicuas. Supongamos que $x$ es un número real y definamos la función
 
 $$
-f: \mathbb{R} \rightarrow \mathbb{R} \; ; \;  x \mapsto x + 1,
+f(x) = x + 1,
 $$
 
-that can be read as following: $f$ is a function from $\mathbb{R}$ to $\mathbb{R}$ such that $f$ of $x$ is $x + 1$".
-
-> 🔔 A slight detour around the codomain. The codomain is the set of entities where the function can possibly map input values into. For example, in the case of the color of the cars, the codomain is simply the set of all the possible colors. In many cases that information is too general, and it is convenient to define the _range_ of the function, which is the set of actual values of outputs the function maps inputs into. The range in the cars example is the set {black, red, white}.
-
-### Multiple inputs and outputs
-
-Let us take the example of a vending machine. In a vending machine, products are arranged in shelves, where each shelf is named by a letter. In each shelf, the products are aligned and identified by a number. Then, in A1 you have a bag of chips, in A2 a chocolate, in B1 a soda, and so on. The machine also has a keyboard with letters and numbers for you to choose the product. To buy something, you need to give the machine some money (coins, bills, credit card, etc), select the product by clicking the letter and the number on the keyboard. The machine returns the product and some cashback, if any. 
-The inputs of our `vendingMachine` function are the money, the letter and the number you selected, and the outputs are the product and 
-the cashback (if any). 
-
-An example from math could be a translation function, where given a point with coordinates \(x\) and $y$ in the plane, it returns a point with coordinates $x+1$ and $y+1$:
+es decir, la función que devuelve el valor $x$ más uno. El conjunto de entrada (que se llama el _dominio_ de la función en matemáticas) es el conjunto de todos los valores reales, $\mathbb{R}$, mientras que el conjunto de salida (el _codominio_ en matemáticas) también es $\mathbb{R}$ , porque sumar uno a cualquier número real también es otro número real. Usando la notación _flecha_, la definición completa de la función sería
 
 $$
-g: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R} \times \mathbb{R}  \; ; \;  (x,y) \mapsto (x + 1, y+1)
+f: \mathbb{R} \rightarrow \mathbb{R} \; ; \; x \mapsto a x + 1,
 $$
 
-or more succintly
+que se puede leer de la siguiente manera: $f$ es una función de $\mathbb{R}$ a $\mathbb{R}$ tal que $f$ de $x$ es $x + 1$".
+
+> 🔔 Un ligero desvío alrededor del codominio. El codominio es el conjunto de entidades en las que la función posiblemente puede asignar valores de entrada. Por ejemplo, en el caso del color de los coches, el codominio es simplemente el conjunto de todos los colores posibles. En muchos casos, esa información es demasiado general y es conveniente definir el _rango_ de la función, que es el conjunto de valores reales de las salidas en las que la función asigna las entradas. El rango en el ejemplo de los autos es el conjunto {negro, rojo, blanco}.
+
+### Múltiples entradas y salidas
+
+Tomemos el ejemplo de una máquina expendedora. En una máquina expendedora, los productos se organizan en estantes, donde cada estante se nombra con una letra. En cada estante, los productos están alineados e identificados por un número. Luego, en A1 tienes una bolsa de papas fritas, en A2 un chocolate, en B1 un refresco, y así sucesivamente. La máquina también tiene un teclado con letras y números para que elijas el producto. Para comprar algo, debe darle dinero a la máquina (monedas, billetes, tarjeta de crédito, etc.), seleccionar el producto haciendo clic en la letra y el número en el teclado. La máquina devuelve el producto y algún cashback, si lo hubiera.
+Las entradas de nuestra función `vendingMachine` son el dinero, la letra y el número que seleccionó, y las salidas son el producto y el cambio (si lo hay).
+
+Un ejemplo matemático podría ser una función de traslación, donde dado un punto con coordenadas \(x\) y $y$ en el plano, devuelve un punto con coordenadas $x+1$ y $y+1$:
+
+$$
+g: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R} \times \mathbb{R} \; ; \; (x,y) \mapsto (x + 1, y+1)
+$$
+
+o más sucintamente
 
 $$
 g(x,y) = (x+1,y+1)
 $$
 
-### Partial application 
-When we feed a function of several input elements, we can obtain the proper output(s). But having many inputs opens a new possibility: what happens when one decides not to complete all the inputs? Let us find out. Let us assume that we entered a bill into the vending machine. It is clear that we will not get any product, because the machine still needs two more inputs: the letter of the shelf and the product number that we want. _After_ we complete these two inputs, we will get our treat (and cashback, if any). So, entering money only in the vending machine leads to a state where two inputs are needed and two outputs will be returned. But, this is _another function_!!!. Let us call it `vendingMachineAfterInsertBill` that receives the letter of the shelf and the product number that we want and returns the product (and cashback, if any). 
+### Aplicación parcial
+Cuando alimentamos una función de varios elementos de entrada, podemos obtener las salidas adecuadas. Pero tener muchas entradas abre una nueva posibilidad: ¿qué sucede cuando uno decide no completar todas las entradas? Averigüémoslo. Supongamos que ingresamos un billete en la máquina expendedora. Está claro que no obtendremos ningún producto, porque la máquina todavía necesita dos entradas más: la letra de la estantería y el número de producto que queremos. _Después_ de que completemos estas dos entradas, obtendremos nuestro producto (y el reembolso, si corresponde). Por lo tanto, ingresar dinero solo en la máquina expendedora conduce a un estado en el que se necesitan dos entradas y se devolverán dos salidas. Pero, esta es _otra función_!!!. Llamémosle `vendingMachineAfterInsertBill` que recibe la letra del estante y el número de producto que queremos y devuelve el producto (y el vuelto, si lo hay).
 
-Going back to the math example, let us feed the function with just the $x = 3$ value, 
+Volviendo al ejemplo matemático, alimentemos la función solo con el valor $x = 3$,
 
 $$
 g(3,y) = (4,y+1)
 $$
 
-Again, the result of feeding the function with one value is another function:
+Nuevamente, el resultado de alimentar la función con un valor es otra función:
 
 $$
-h: \mathbb{R} \rightarrow \mathbb{R} \times \mathbb{R}  \; ; \;  y \mapsto (4, y+1)
+h: \mathbb{R} \rightarrow \mathbb{R} \times \mathbb{R} \; ; \; y \mapsto (4, y+1)
 $$
 
-or 
+o
 
 $$
 h(y) = (4,y+1)
 $$
 
-This property of functions is called _partial application_. Whenever you do not complete all the inputs of a function, you get another function.
+Esta propiedad de las funciones se llama aplicación parcial. Cada vez que uno no completa todas las entradas de una función, obtiene otra función.
 
-### Composition 
- 
-Finally, we look here how to work with several functions at once. Let us assume that we have a function `getFirstName` that given the full name of a person, it returns the first name (it does not matter at this point the specifics of the implementation, not even the language). For example, when applied to 'David Gilmour', it returns 'David', or when applied to 'Annie Lennox', it returns, of course 'Annie'.
-We also have a function `getInitial` that for a given name, it returns the initial. In the previous cases, 'D' for 'David' and 'A' for 'Annie'. 
+### Composición
 
-Now we want to build a function that gives us the initial of the first name, given the full name. For 'Paul McCartney'. We feed 'Paul McCartney' as input to the function `getFirstName`, which gives us the output 'Paul'. Now, 'Paul' is the input of the function `getInitial` and returns 'P' as the final output. 
-This plumbing where the output of one function is the input of another is called _composition_. Note that it is absolutely necessary that the output of the first called function (`getFirstName`) and the input of the second one (`getInitial`) are the same kind of entity, in our case, both are first names.
-You can [see this pictures for a graphical explanation](https://mathinsight.org/function_machine_composition).
+Finalmente, vemos aquí cómo trabajar con varias funciones a la vez. Supongamos que tenemos una función `getFirstName` que, dado el nombre completo de una persona, devuelve el nombre (no importa en este punto los detalles de la implementación, ni siquiera el idioma). Por ejemplo, cuando se aplica a 'David Gilmour', devuelve 'David', o cuando se aplica a 'Annie Lennox', devuelve, por supuesto, 'Annie'.
+También tenemos una función `getInitial` que para un nombre dado, devuelve la inicial. En los casos anteriores, 'D' por 'David' y 'A' por 'Annie'.
 
-Let us now look at a math example. We defined before the function $f(x)$ that adds one to $x$, for example 
+Ahora queremos construir una función que nos dé la inicial del primer nombre, dado el nombre completo. Por 'Paul McCartney'. Alimentamos 'Paul McCartney' como entrada a la función 'getFirstName', que nos da la salida 'Paul'. Ahora, 'Paul' es la entrada de la función 'getInitial' y devuelve 'P' como salida final.
+Esta tubería donde la salida de una función es la entrada de otra se llama _composición_. Tenga en cuenta que es absolutamente necesario que la salida de la primera función llamada (`getFirstName`) y la entrada de la segunda (`getInitial`) sean del mismo tipo de entidad, en nuestro caso, ambos son nombres.
+Puede [ver esta página para una explicación gráfica del asunto](https://mathinsight.org/function_machine_composition).
+
+Veamos ahora un ejemplo matemático. Definimos antes la función $f(x)$ que suma uno a $x$, por ejemplo
 
 $$
 f(0) = 0 + 1 = 1
 $$
 
-What if we apply the $f$ function again? It means to compute
+¿Qué pasa si aplicamos la función $f$ nuevamente? significa computar
 
 $$
-f(f(0)) = f(0) + 1 = 0 + 1 + 1 = 2 
+f(f(0)) = f(0) + 1 = 0 + 1 + 1 = 2
 $$
 
-In general,
+En general,
 
 $$
-f(f(x)) = f(x) + 1 = x + 1 + 1 = x + 2 
+f(f(x)) = f(x) + 1 = x + 1 + 1 = x + 2
 $$
 
-If we look carefully to the last expression, it looks like composing the function is like passing the function as the input itself ($f(f(x))$). This means that if we are going to have a programming language that implements function composition, in some way functions should be able to be passed as input to another functions. 
+Si observamos cuidadosamente la última expresión, componer la función es como pasar la función como la entrada misma ($f(f(x))$). Esto significa que si vamos a tener un lenguaje de programación que implemente la composición de funciones, de alguna manera las funciones deberían poder pasarse como entrada a otras funciones.
 
-> ❗️ The fact that we use the same function to compose with itself is not relevant to this discussion, one can compose as many different functions as one wants, provided that inputs and outputs are compatible in each composition step.
+> ❗️ El hecho de que usemos la misma función para componer consigo misma no es relevante para esta discusión, uno puede componer tantas funciones diferentes como quiera, siempre que las entradas y salidas sean compatibles en cada paso de composición.
 
-> 🔔 However, composing that particular function with itself is interesting. Imaging having only the zero and this function. You can create all the natural numbers {1, 2, ...} just by composing this function with itself again and again. For example, $4 = f(f(f(f(0))))$, and so on. Therefore, given the number 0, $f(x) = x + 1$ and function composition, one can get all the natural numbers. Looks like there is something going on here. More on this, hopefully, in a future episode.
+> 🔔 Sin embargo, componer esa función particular consigo misma es interesante. Imágenes que tienen solo el cero y esta función. Puedes crear todos los números naturales {1, 2, ...} simplemente componiendo esta función consigo misma una y otra vez. Por ejemplo, $4 = f(f(f(f(0))))$, y así sucesivamente. Por lo tanto, dado el número 0, $f(x) = x + 1$ y la composición de la función, se pueden obtener todos los números naturales. Parece que algo está pasando aquí. Más sobre esto, con suerte, en un episodio futuro.
 
 
-## Functions in F\# 
+## Funciones en F\#
 
-The F\# language implements functions in such a way that they satisfy the properties mentioned above. To define a function, the language also uses the keyword `let`:
+El lenguaje F\# implementa funciones de tal manera que satisfacen las propiedades mencionadas anteriormente. Para definir una función, el lenguaje también usa la palabra clave `let`:
 
 
 ```fsharp
@@ -126,8 +125,8 @@ let next x =
     x + 1 
 ```
 
-We defined the function named `next` that receives an argument `x`. Notice that there are no other symbols or parentheses in the function definition. The body of the function should be indented, and there is no `return` keyword at the end. The function simply returns the last expression found in its body. Clean, isn't it? 
-Using the function is easy as well:
+Definimos la función llamada `next` que recibe un argumento `x`. Observe que no hay otros símbolos o paréntesis en la definición de la función. El cuerpo de la función debe estar indentado y no hay ninguna palabra clave `return` al final. La función simplemente devuelve la última expresión encontrada en su cuerpo. Limpio, ¿no?
+Usar la función también es fácil:
 
 ```fsharp
 let one = next 0 
@@ -137,13 +136,9 @@ printfn "one: %A" one
 printfn "two: %A" two 
 ```
 
-    one: 1
-    two: 2
+Tenga en cuenta que no es necesario usar paréntesis alrededor del argumento cuando se usa una función. Sin embargo, debe usarlos cuando pase una expresión más compleja como argumento a la función, como en el caso de `two`.
 
-
-Notice that there is no need to use parentheses around the argument when using a function. However, you need to use them when passing a more complex expression as the argument to the function, such as in the case of `two`. 
-
-There is another way to write the computation of `two`, by using the _pipe operator_ `|>`:
+Hay otra forma de escribir el cálculo de `two`, utilizando el operador _pipe_ `|>`:
 
 ```fsharp
 let anotherTwo =
@@ -154,41 +149,38 @@ let anotherTwo =
 printfn "anotherTwo: %A" anotherTwo
 ```
 
-    anotherTwo: 2
+Este operador se encarga de la plomería al llamar funciones una tras otra. En el ejemplo anterior, el primer `|>` recibe `0` como entrada, lo pasa a la siguiente función, el segundo `|>` recibe la salida de la primera función `next` y la alimenta como entrada a la segunda `next`.
 
-
-This operator takes care of the plumbing when calling functions one after another. In the example above, the first `|>` receives `0` as the input, passes it to the next function, the second `|>` receives the output of the first `next` function and feeds it as input to the second `next`. 
-
-Another example. Let us assume that we have the functions `getInitial` and `getFirstName` defined as:
+Otro ejemplo. Supongamos que tenemos las funciones `getInitial` y `getFirstName` definidas como:
 
 ```fsharp
 let getInitial name = 
     .... //Implementation not important right now
 ```
 
-and 
+y
 
 ```fsharp
 let getFirstName fullName = 
     .... //Implementation not important right now
 ```
 
-and we defined the value
+y definimos el valor
 
 ```fsharp
 let paul = "Paul McCartney"
 ```
 
-Then, 
+Entonces,
 
 ```fsharp
 paul
 |> getFirstName
 |> getInitial 
 ```
-Here the string value `paul` is fed into the `getFirstName` function as the input by the first pipe `|>`, and returns 'Paul' as output. Then, the string 'Paul' is passed as the input of the function `getInitial` that gives us the 'P'. 
+Aquí, el valor de la cadena `paul` se introduce en la función `getFirstName` como la entrada de la primera canalización `|>`, y devuelve 'Paul' como salida. Luego, la cadena 'Paul' se pasa como entrada de la función 'getInitial' que nos da la 'P'.
 
-Composition is so important in functional languages, that it has its own symbol in F\#, `>>` :
+La composición es tan importante en los lenguajes funcionales que tiene su propio símbolo, que en F\# es `>>` :
 
 ```fsharp
 let add2 = next >> next 
@@ -196,10 +188,7 @@ let two' = add2 0
 printfn "%A" two'
 ```
 
-    2
-
-
-Yes, you can use the `'` symbol in any identifier! (provided it is not the first character). Note also that we defined a _function_ `add2` by using the composition operator (no argument needed). This is equivalent to:
+¡Sí, puede usar el símbolo `'` en cualquier identificador! (siempre que no sea el primer carácter). Tenga en cuenta también que definimos una _función_ `add2` usando el operador de composición (no se necesita ningún argumento). Esto es equivalente a:
 
 ```fsharp
 let add2' x = 
@@ -208,38 +197,46 @@ let add2' x =
     |> next 
 ```
 
-Remember that there is no return at the end of the function, just the last expression of the function is the return value. 
+Recuerda que no hay retorno al final de la función, solo la última expresión de la función es el valor de retorno.
 
-Back to the names example, to clarify the order in which functions are composed. 
+Volviendo al ejemplo de los nombres, para aclarar el orden en que se componen las funciones.
 
 ```fsharp
 let getInitialFromFirstName fullName =
+    getInitial (getFirstName fullName)
+        
+```
+
+```fsharp
+let getInitialFromFirstName' fullName =
     fullName
         |> getFirstName 
         |> getInitial 
 ```
-and 
+y
 
 ```fsharp
-let getInitialFromFirstName' =
+let getInitialFromFirstName'' =
         getFirstName >> getInitial 
 ```
 
-are equivalent. 
 
-> ❓ Think about routines, procedures or functions that maybe you have written in your language of preference. Do they behave as F\# functions? What are the main differences you see?
 
-> 🏋🏽 We have a function `mult2` that given a number `x` doubles that number. Without coding, can you determine what the next composite functions return when applied to 3? :
+son equivalentes.
+
+> ❓ Piensa en rutinas, procedimientos o funciones que quizás tengas escritas en tu idioma de preferencia. ¿Se comportan como funciones F\#? ¿Cuáles son las principales diferencias que ves?
+
+> 🏋🏽 Tenemos una función `mult2` que dado un número `x` duplica ese número. Sin codificar, ¿puedes determinar qué devuelven las siguientes funciones compuestas cuando se aplican a 3? :
 
 ```fsharp
 let f = mult2 >> next 
 let g = next >> mult2 
 ```
 
-Code the function `mult2` and see the result by yourself.
+Codifique la función `mult2` y vea el resultado usted mismo.
 
-Some final remarks for now on functions. First, note that the language use the same keyword `let` to bind simple values and functions to a name or identifier. This emphasizes the fact that in F# functions are 'just' values, and can be treated in the same way as, say, a simpler binding of an expression to an identifier. 
-Second, the properties of functions that were discussed above match perfectly inmutability. In fact, functions receive immutable inputs and return an immutable value. 
+Algunas observaciones finales por ahora sobre las funciones. Primero, tenga en cuenta que el lenguaje usa la misma palabra clave `let` para vincular valores y funciones simples a un nombre o identificador. Esto enfatiza el hecho de que en las funciones de F# son valores 'solo' y se pueden tratar de la misma manera que, por ejemplo, un enlace más simple de una expresión a un identificador.
+En segundo lugar, las propiedades de las funciones que se discutieron anteriormente coinciden perfectamente con la inmutabilidad. De hecho, las funciones reciben entradas inmutables y devuelven un valor inmutable.
 
-> Checkout [the Jupyter notebook companion of this guide](https://github.com/fcolavecchia/fp-course/blob/main/en/Functions.ipynb).
-
+<!-- > Aquí está  [el Jupyter notebook de esta guía](https://github.com/fcolavecchia/fp-course/blob/main/es/Functions_es.ipynb).
+ -->

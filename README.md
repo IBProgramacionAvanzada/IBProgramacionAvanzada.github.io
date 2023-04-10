@@ -36,6 +36,17 @@ Mientras que el primero ofrece [una versión web](https://vscode.dev/) que no re
 
 Eventualmente se pedirá la entrega de algún ejercicio escrito que no sea un programa. Para ello utilizamos [Markdown](https://www.argentina.gob.ar/contenidosdigitales/escribir-en-markdown/markdown-basico) que posee una sintaxis simple, aunque permite agregar ecuaciones $$f(g(x)) = g(x)+1$$ en LaTeX.
 
+<!-- ### Videos
+
+En este momento del siglo XXI, no hay manera de escapar a la información que viene en videos. En el siguiente link
+hay una lista de videos que con temas asociados a la materia. 
+
+[Videos de programación](https://youtube.com/playlist?list=PLnMc6Rr34vPYU5liVvEL_irif5XJQoBpK). 
+ -->
+
+
+
+
 <!-- ### Jupyter notebooks
 
 > Veremos esto a partir de la clase 1.
