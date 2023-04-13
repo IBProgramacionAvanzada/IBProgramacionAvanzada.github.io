@@ -8,9 +8,6 @@ tags:
 - fsharp
 ---
 
-
-
-
 Hemos presentado las bases sobre las cuales se asienta el lenguaje en términos de funciones: 
 
 - Funciones como _ciudadanos de primera clase_ en el lenguaje
@@ -56,9 +53,6 @@ let prettyPrint s =
 
 let hola name =
     prettyPrint ("Hola " + name + " !")
-
-
-
 ```
 
 ```fsharp
@@ -160,6 +154,114 @@ let earning = 10
 let finalPrice = price tax earning cost 
 
 prettyPrint finalPrice
+```
+
+    59.895
+
+
+O uno podría usar pipe:
+
+```fsharp
+cost
+|> priceAfterEarning earning 
+|> priceAfterTax tax 
+
+```
+
+
+<div class="dni-plaintext"><pre>59.89500000000001</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
+Otra posibilidad es generalizar y crear una sola función para calcular el porcentaje
+
+```fsharp
+let applyPercentage per value = 
+    value * (1.0 + per/100.0)
+
+let priceAfterEarning2 = applyPercentage earning
+let priceAfterTax2 = applyPercentage tax     
+```
+
+```fsharp
+cost
+|> priceAfterEarning2
+|> priceAfterTax2 
+```
+
+
+<div class="dni-plaintext"><pre>59.89500000000001</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
+Que es equivalente a componer las funciones:
+
+```fsharp
+let finalPrice = priceAfterEarning2 >> priceAfterTax2 
+```
+
+```fsharp
+printfn "%A" (finalPrice cost)
 ```
 
     59.895

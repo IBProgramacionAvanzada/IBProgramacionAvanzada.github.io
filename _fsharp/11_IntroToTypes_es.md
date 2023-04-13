@@ -88,12 +88,12 @@ que, excepto por el uso de la palabra clave `let` (¡y el hecho de que son inmut
 
 Si pasa el mouse sobre cada uno de los valores anteriores, puede ver algo como esto:
 
-<img src="../img/type_inference.png" alt="Type inference" width="400"/>
+<img src="/img/type_inference.png" alt="Type inference" width="400"/>
 
 
 Ese cuadro contiene el tipo del valor `a` que ha sido _inferido_ por el compilador. Sí, cuando codifica en un IDE compatible con F\#, habrá un compilador de F\# que digiere su código a medida que lo escribe y explora con qué tipos está trabajando. En la gran mayoría de los casos, la suposición del compilador es correcta. Hay algunos casos en los que no puede inferir el tipo del contexto de su código. En ese caso, verá algunas ondulaciones rojas que subrayan su variable y un mensaje de advertencia:
 
-<img src="../img/indeterminate_lookup.png" alt="Indeterminate lookup" width="800"/>
+<img src="/img/indeterminate_lookup.png" alt="Indeterminate lookup" width="800"/>
 
 
 eso dice exactamente eso: el compilador no sabe qué tipo necesita asignar al valor problemático.
@@ -117,7 +117,7 @@ let sum a b : int =
 
 Una mirada más cercana a la función anterior nos lleva a otra notación interesante. Al pasar el cursor sobre `sum` vemos:
 
-<img src="../img/function_types.png" alt="Function types" width="300"/>
+<img src="/img/function_types.png" alt="Function types" width="300"/>
 
 El compilador nos dice que la función `suma` es del tipo
 ```fagudo
