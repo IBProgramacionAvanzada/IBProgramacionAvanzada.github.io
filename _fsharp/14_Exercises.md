@@ -10,6 +10,10 @@ tags:
 
 Unos ejercicios livianos para empezar a trabajar con dominios.
 
+### El video de la semana
+
+[_The Art of Code_, Dylan Beattie](https://youtu.be/6avJHaC3C2U)
+
 ### Monedas
 
 En algún momento, un cliente ingresará cierta cantidad de cada moneda para comprar un producto en la máquina expendedora de alimentos. La máquina recibe monedas de 10, 25 y 50 centavos únicamente.
