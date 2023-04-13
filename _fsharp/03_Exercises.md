@@ -38,11 +38,13 @@ Este es un ejercicio clásico de programación. Use su lenguaje de programación
 - Escriba un programa que imprime los números del 1 al 100. Pero, cuando un número es múltiplo de tres, tiene que imprimir `Fizz` en lugar del número. Y para 
 números múltiplos de cinco, tiene que imprimir `Buzz` en lugar del número. además, si el número 
 es múltiplo de tres y cinco, debe imprimir `FizzBuzz`. 
+
 Por ejemplo,
-9 es divisible por 3, con lo cual debe imprimirse `Fizz`.
-15 es divisible por 3 y por 5, con lo cual debe imprimirse `FizzBuzz`.
-25 es divisible por 5, con lo cual debe imprimirse `Buzz`.
-34 no es divisible ni por 3 ni por 5, con lo cual debe imprimirse 34.
+
+- 9 es divisible por 3, con lo cual debe imprimirse `Fizz`.
+- 15 es divisible por 3 y por 5, con lo cual debe imprimirse `FizzBuzz`.
+- 25 es divisible por 5, con lo cual debe imprimirse `Buzz`.
+- 34 no es divisible ni por 3 ni por 5, con lo cual debe imprimirse 34.
 
 El resultado esperado hasta desde el 1 hasta el 15 es:
 ```
@@ -80,7 +82,7 @@ un paquete de galletas puede costar 123,75\$.
 Pero también hay productos que se venden por peso, como un kilo de manzanas o naranjas.
 Además, se ven frecuentemente algunas promociones como:
 
-- Si lleva dos del mismo producto, 70\% de descuento en la segunda unidad.
+- Si lleva dos del mismo producto, 70% de descuento en la segunda unidad.
 - Una lata de atún puede estar de oferta, llevando tres , paga por dos.
 - O puede ser que por 1000 pesos uno pueda llevarse tres paquetes de yerba.
 
