@@ -32,3 +32,13 @@ Recuerde que en el truco, los ochos y nueves no forman parte del mazo.
 - Escriba una función que dadas tres cartas, determine si es posible formar un envido.
 - Escriba una función que dadas dos cartas, retorne el valor del envido, o algun tipo de error si no tiene envido con dichas cartas.
 
+### Calculando $e^x$ 
+
+Utilice recursión para calcular el valor de $e^x$  usando la serie
+$$$
+e^x = \sum_{n=0}{N-1} \frac{x^n}{n!}
+$$$
+hasta un número fijo $N$ de términos. 
+
+Suponga ahora que se quiere calcular la serie pero en lugar de calcular un número fijo de términos, se desea evaluar la función con un error relativo dado `epsilon`. Modifique
+el código anterior para obtener esta función. 
