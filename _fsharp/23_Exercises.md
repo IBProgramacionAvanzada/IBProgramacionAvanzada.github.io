@@ -14,6 +14,12 @@ Ahora puede volver al [ejercicio de FizzBuzz]({% link _fsharp/03_Exercises.md %}
 a resolverlo en F#. Construir una función que dado un número, imprima Fizz para múltiplos de tres, Buzz para números múltiplos de cinco,
 y además, si el número es múltiplo de tres y cinco, debe imprimir FizzBuzz.
 
+### Puntos cardinales
+
+Construya un tipo de dato que represente los puntos cardinales principales (N,S,E,O) y los intermedios (NE,NO,SE,SO).
+Defina una función que permita determinar hacia qué punto cardinal un vehículo se está dirigiendo, dado el rumbo del mismo,
+definido como un ángulo en el rango  0 y 359 grados.
+
 ### Volviendo al truco
 
 Retomando el [ejercicio del truco]({% link _fsharp/14_Exercises.md %}### Poker (o Truco)):
