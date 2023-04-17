@@ -1,10 +1,21 @@
+---
+layout: post
+title: Manejando por las ramas 
+tagline: Manejando por las ramas con `if`, _pattern matching_ y recursión.
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
+
+
 Manejando por las ramas con `if`, _pattern matching_ y recursión.
 
 Uno de los conceptos más importantes en programación es el control de flujo. Éste se refiere a la posibilidad del código de manejar diferentes caminos de ejecución de acuerdo a condiciones que aparecen al procesar datos. Por ejemplo, el usuario de la máquina expendedora puede pagar con billetes, monedas o tarjeta de crédito, y el sistema de software debe poder acomodar todos esos casos.
 
 En la mayoría de los lenguajes existe la sentencia `if condición then ... else`, que permite administrar el código de acuerdo a si la condición es verdadera o falsa. 
 
-Sin embargo, en F#, no tenemos sentencias sino expresiones, con lo cual el `if` también es evaluado como una expresión y debe devolver un valor. Por ejemplo, podemos evaluar la función $|x|$:
+Sin embargo, en F#, no tenemos sentencias sino expresiones, con lo cual el `if` también es evaluado como una expresión y debe devolver un valor. Por ejemplo, podemos evaluar la función $\|x\|$:
 
 ```fsharp
 let absoluteValue x =
@@ -168,7 +179,7 @@ printfn "%A" (howManyLegs Animals.Eagle)
 
 Esto es posible en el caso en que el _pattern matching_ sea contra expresiones que son o representan constantes. 
 
-## Reemplazando el `for` por recursión
+### Reemplazando el `for` por recursión
 
 Dado que el loop `for` habitual requiere (ya sea explicita o implícitamente) algún tipo de contador que se va actualizando, esto es, es una _variable_, es necesario contar con una forma de poder hacer loops sin el `for`. Para ello se utiliza la recursión en todos los lenguajes funcionales. 
 
@@ -260,9 +271,11 @@ fib 10 |> printfn "%i"
 
 
 Uno podría estar interesado en sumar una serie de números, por ejemplo calcular la serie
-$$$
+
+$$
 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n}
-$$$
+$$
+
 hasta un cierto valor de $n$:
 
 ```fsharp
@@ -291,3 +304,5 @@ let fib n =
 ```
 
 En este caso la función exterior `fib` no es recursiva en sí misma, pero utiliza una función recursiva en su interior, denominada `loop`. Los valores `acc1` y `acc2` son los encargados de llevar la información de los elementos previos de la serie necesarios para calcular el elemento presente.
+
+> 👀 Es importante recordar que F# es un lenguaje _multiparadigma_, así que, estrictamente hablando, sí posee un `for` parecido al que uno conoce en otros lenguajes. En este curso en particular nos estamos enfocando en el paradigma funcional de F#, con lo cual **elegimos** descartar el uso del `for` tradicional.

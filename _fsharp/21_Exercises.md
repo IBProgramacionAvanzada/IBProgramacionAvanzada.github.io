@@ -8,6 +8,10 @@ tags:
 - fsharp
 ---
 
+
+
+
+
 ### Volviendo a `FizzBuzz` 
 
 Ahora puede volver al [ejercicio de FizzBuzz]({% link _fsharp/03_Exercises.md %}### FizzBuzz _Kata_) y comenzar
@@ -20,7 +24,7 @@ Construya un tipo de dato que represente los puntos cardinales principales (N,S,
 Defina una función que permita determinar hacia qué punto cardinal un vehículo se está dirigiendo, dado el rumbo del mismo,
 definido como un ángulo en el rango  0 y 359 grados.
 
-### Volviendo al truco
+### Volviendo al truco 
 
 Retomando el [ejercicio del truco]({% link _fsharp/14_Exercises.md %}### Poker (o Truco)):
 
@@ -35,10 +39,16 @@ Recuerde que en el truco, los ochos y nueves no forman parte del mazo.
 ### Calculando $e^x$ 
 
 Utilice recursión para calcular el valor de $e^x$  usando la serie
-$$$
-e^x = \sum_{n=0}{N-1} \frac{x^n}{n!}
-$$$
+
+$$
+e^x = \sum_{n=0}^{N-1} \frac{x^n}{n!}
+$$
+
 hasta un número fijo $N$ de términos. 
 
 Suponga ahora que se quiere calcular la serie pero en lugar de calcular un número fijo de términos, se desea evaluar la función con un error relativo dado `epsilon`. Modifique
 el código anterior para obtener esta función. 
+
+
+
+
