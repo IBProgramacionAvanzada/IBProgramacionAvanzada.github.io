@@ -2,7 +2,6 @@
 layout: post
 title: Discriminated Unions
 tagline: Tratar con entidades que pertenecen a un grupo de casos bien predefinido.
-
 categories: 
 - F# as your first functional programming language
 tags:
