@@ -24,8 +24,7 @@ En este ejercicio se propone escribir un conjunto de tipos y funciones que me pe
 - Analice cuáles son las transiciones de los estados de las luces, y proponga la o las funciones que permitan cambiar de estado, y las modificaciones 
   necesarias (o no) al tipo de dato que describe el semáforo.
 - Escriba un tipo de dato que pueda resumir el estado del semáforo y las transiciones. 
-- En algunos casos, típicamente por la noche en lugares de poco tránsito, el semáforo se enciende la luz amarilla en forma intermitente. Agrege este nuevo 
-  caso al modelo del problema, y modifique las funciones adecuadamente.
+- En algunos casos, típicamente por la noche en lugares de poco tránsito, el semáforo enciende la luz amarilla en forma intermitente. Agrege este nuevo caso al modelo del problema, y modifique las funciones adecuadamente.
 
 ### Números naturales
 
