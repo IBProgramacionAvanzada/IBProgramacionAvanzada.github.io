@@ -78,7 +78,6 @@ sudo apt install dotnet-sdk-7.0
 - Finalmente, abrir VSCode e instalar la extensión Polyglot Notebooks. La misma extensión instalará una versión
   compatible de .NET interactive, que provee los _kernels_ de .NET para Jupyter.
 
-  
 
 
 
