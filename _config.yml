@@ -63,8 +63,11 @@ collections:
       - 12_DiscriminatedUnions_es.md 
       - 13_Records_es.md
       - 14_Exercises.md
-      - 20_ControlFlow.md
+      - 20_ControlFlow.md      
       - 21_Exercises.md 
+      - 30_Tuples.md
+      - 31_OnCollections.md 
+      - 33_Exercises.md
       - 999_resources.md 
 
 

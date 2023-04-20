@@ -8,7 +8,7 @@ tags:
 - fsharp
 ---
 
-
+[The Programmer's Brain, Felienne Hermans](https://www.youtube.com/watch?v=FJn6_dCp-BM&ab_channel=InfoQ)
 
 ### El _Kata_ del semáforo
 
