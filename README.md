@@ -36,6 +36,54 @@ Mientras que el primero ofrece [una versión web](https://vscode.dev/) que no re
 
 Eventualmente se pedirá la entrega de algún ejercicio escrito que no sea un programa. Para ello utilizamos [Markdown](https://www.argentina.gob.ar/contenidosdigitales/escribir-en-markdown/markdown-basico) que posee una sintaxis simple, aunque permite agregar ecuaciones $$f(g(x)) = g(x)+1$$ en LaTeX.
 
+### Instalando el _toolchain_ 
+
+Si bien en las primeras clases utilizaremos alguno de los entornos web para iniciarnos en la programación en F#, es conveniente ir acercándose 
+al juego completo de herramientas. Para poder utilizar F# en Jupyter notebooks, [seguir estas instrucciones](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) para instalar _Polyglot Notebooks_.
+
+#### Ubuntu 22.04
+
+Para instalar el toolchain en ubuntu 22.04, es necesario [seguir algunos pasos detalladamente](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu).
+
+- Remover versiones anteriores de .NET instaladas quizás desde los paquetes nativos de ubuntu. 
+- Como _Polyglot Notebooks_ es compatible con .NET 7.0, que [requiere ser instalada manualmente en esta versión de ubuntu](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository).
+
+```bash
+# Get Ubuntu version
+declare repo_version=$(if command -v lsb_release &> /dev/null; then lsb_release -r -s; else grep -oP '(?<=^VERSION_ID=).+' /etc/os-release | tr -d '"'; fi)
+
+# Download Microsoft signing key and repository
+wget https://packages.microsoft.com/config/ubuntu/$repo_version/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+
+# Install Microsoft signing key and repository
+sudo dpkg -i packages-microsoft-prod.deb
+
+# Clean up
+rm packages-microsoft-prod.deb
+
+# Update packages
+sudo apt update
+```
+La salida de todas estas instrucciones debiera parecerse a esto:
+![Instalación de .NET 7.0 en Ubuntu 22.04](/img/dotnet-install-22.04.png)
+
+
+
+- Luego instalar el SDK con 
+
+```bash
+sudo apt install dotnet-sdk-7.0
+```
+
+- Finalmente, abrir VSCode e instalar la extensión Polyglot Notebooks. La misma extensión instalará una versión
+  compatible de .NET interactive, que provee los _kernels_ de .NET para Jupyter.
+
+  
+
+
+
+
+
 <!-- ### Videos
 
 En este momento del siglo XXI, no hay manera de escapar a la información que viene en videos. En el siguiente link
