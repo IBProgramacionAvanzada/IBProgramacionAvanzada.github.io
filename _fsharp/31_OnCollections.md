@@ -362,3 +362,4 @@ table th {
 }
 </style>
 
+Recomiendo la página [Choosing between collection functions](https://fsharpforfunandprofit.com/posts/list-module-functions/) para consultar ejemplos y uso de métodos de colecciones.
