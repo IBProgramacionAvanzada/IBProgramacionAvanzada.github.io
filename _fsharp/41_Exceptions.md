@@ -19,6 +19,22 @@ let getHead (l: int list) =
 getHead []
 ```
 
+
+    System.InvalidOperationException: The input list was empty.
+
+
+       at Microsoft.FSharp.Collections.FSharpList`1.get_Head() in D:\a\_work\1\s\src\FSharp.Core\prim-types.fs:line 4072
+
+
+       at <StartupCode$FSI_0016>.$FSI_0016.main@()
+
+
+       at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+
+
+       at System.Reflection.MethodInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+
+
 En este caso el sistema emite la excepción `InvalidOperationException`, y nos dice la causa `The input list was empty`. 
 
 Cómo capturamos la excepción? Con un bloque `try...with`:
@@ -34,6 +50,44 @@ let getHeadExn (l: int list) =
 
 getHeadExn []
 ```
+
+    Exception!
+
+
+
+<div class="dni-plaintext"><pre>-1</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
 
 Nuevamente F# utiliza _pattern matching_ para verificar el _tipo_ de excepción, a través del símbolo `:?`. El bloque `try...with` no deja de ser una expresión, por lo tanto ambas ramas (`try` y `with`) tienen que retornar el mismo tipo de dato. De allí el valor `-1` en la rama `with`, para indicar que no es posible obtener el valor `Head` de la lista.
 
@@ -51,6 +105,44 @@ let getHeadExnCustomMsg (l: int list) =
 
 getHeadExnCustomMsg []
 ```
+
+    Exception!: "The input list was empty."
+
+
+
+<div class="dni-plaintext"><pre>-1</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
 
 Se pueden crear excepciones en lugar de utilizar las del sistema:
 
@@ -71,6 +163,44 @@ let getHeadExn2 (l: int list) =
 getHeadExn2 []
 ```
 
+    List is empty
+
+
+
+<div class="dni-plaintext"><pre>-1</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
 En este caso es el programador que decide emitir una excepción personalizada, a través de la función `raise`. 
 
 ```fsharp
@@ -85,14 +215,49 @@ let divide x y =
 printfn "%A" (divide 4 2)
 ```
 
+    2
+
+
 ```fsharp
 printfn "%A" (divide 4 1)
 
 ```
 
+
+    FSI_0020+DivideByOne: DivideByOne "Can't believe you are trying to divide by one"
+
+
+       at FSI_0020.divide(Int32 x, Int32 y)
+
+
+       at <StartupCode$FSI_0021>.$FSI_0021.main@()
+
+
+       at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+
+
+       at System.Reflection.MethodInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+
+
 ```fsharp
 printfn "%A" (divide 4 0)
 ```
+
+
+    System.InvalidOperationException: Trying to divide by zero!!
+
+
+       at FSI_0020.divide(Int32 x, Int32 y)
+
+
+       at <StartupCode$FSI_0022>.$FSI_0022.main@()
+
+
+       at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+
+
+       at System.Reflection.MethodInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+
 
 ```fsharp
 let annoyedDivide x y =
@@ -114,13 +279,124 @@ annoyedDivide 4 2
 
 ```
 
+
+<div class="dni-plaintext"><pre>2</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
 ```fsharp
 annoyedDivide 4 1 
 ```
 
+    "Can't believe you are trying to divide by one"
+
+
+
+<div class="dni-plaintext"><pre>-1</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
 ```fsharp
 annoyedDivide 4 0
 ```
+
+    Message: "Trying to divide by zero!!"
+
+
+
+<div class="dni-plaintext"><pre>-1</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
 
 La función `annoyedDivide` captura las excepciones, y en esos casos devuelve `-1`.
 

@@ -8,9 +8,9 @@ tags:
 - fsharp
 ---
 
-### Los trenes ingleses
+### Trenes ingleses
 
-> Este es un dominio de verdad, tratado por [Kit Easton en su libro Stylish F#] (https://doi.org/10.1007/978-1-4842-4000-7_2), cuya lectura recomiendo. En particular, el primer capítulo es de lectura imprescindible para comprender qué significa un estilo de programación, más allá
+> Este es un dominio de verdad, tratado por [Kit Easton en su libro Stylish F#](https://doi.org/10.1007/978-1-4842-4000-7_2), cuya lectura recomiendo. En particular, el primer capítulo es de lectura imprescindible para comprender qué significa un estilo de programación, más allá
 del lenguaje usado.
 
 Los trenes británicos, antes de pasar al sistema decimal, usaban como medidas la milla y la yarda. Una milla tiene 1760 yardas, y una 
