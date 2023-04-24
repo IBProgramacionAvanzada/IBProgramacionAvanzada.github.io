@@ -1,3 +1,13 @@
+---
+layout: post
+title: Diccionarios 
+tagline: Juntando datos
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
+
 Un `Map` es un diccionario, de modo tal que se accede a los datos a través de una llave. 
 
 ```fsharp

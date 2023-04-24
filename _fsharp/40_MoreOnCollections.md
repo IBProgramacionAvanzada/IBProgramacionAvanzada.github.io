@@ -144,7 +144,7 @@ Como venimos insistiendo, la idea de las colecciones es poder procesarlas a trav
 
 Vimos que las funciones sobre colecciones se pueden clasificar de acuerdo al tipo de inputs y outputs de cada una de ellas. Detallando esta idea, en la siguiente imagen se ven algunos ejemplos de ellas, y qué tipos de inputs y outputs poseen (del libro [Stylish F#, de Kit Easton](https://link.springer.com/book/10.1007/978-1-4842-7205-3)):
 
-<img src="../img/KEaston-Table4-1.png" alt="" width="400"/>
+<img src="img/KEaston-Table4-1.png" alt="" width="400"/>
 
 
 La mayoría de estas funciones reciben como argumento una función y una lista, y devuelven una lista nueva con la transformación correspondiente. La función en general suele escribirse como una función anónima:
