@@ -69,7 +69,8 @@ collections:
       - 31_OnCollections.md 
       - 33_Exercises.md
       - 40_MoreOnCollections.md
-      - 41_Exceptions.md
+      - 41_Maps.md
+      - 42_Exceptions.md
       - 43_Exercises.md
       - 999_resources.md 
 

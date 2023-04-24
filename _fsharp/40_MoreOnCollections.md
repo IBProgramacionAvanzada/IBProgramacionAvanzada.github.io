@@ -87,7 +87,7 @@ printfn "%A" [].Head
        at Microsoft.FSharp.Collections.FSharpList`1.get_Head() in D:\a\_work\1\s\src\FSharp.Core\prim-types.fs:line 4072
 
 
-       at <StartupCode$FSI_0035>.$FSI_0035.main@()
+       at <StartupCode$FSI_0065>.$FSI_0065.main@()
 
 
        at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
@@ -107,7 +107,7 @@ printfn "%A" [].Tail
        at Microsoft.FSharp.Collections.FSharpList`1.get_Tail() in D:\a\_work\1\s\src\FSharp.Core\prim-types.fs:line 4077
 
 
-       at <StartupCode$FSI_0036>.$FSI_0036.main@()
+       at <StartupCode$FSI_0066>.$FSI_0066.main@()
 
 
        at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
@@ -116,13 +116,35 @@ printfn "%A" [].Tail
        at System.Reflection.MethodInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
 
 
+Usando la notación de listas, se pueden crear así:
+
+```fsharp
+let l = 3 :: [6;7]
+printfn "%A" l
+```
+
+    [3; 6; 7]
+
+
+o concatenando dos listas:
+
+```fsharp
+let l2 = l @ [8;9]
+printfn "%A" l2
+```
+
+    [3; 6; 7; 8; 9]
+
+
+
+
 ### Procesando listas
 
 Como venimos insistiendo, la idea de las colecciones es poder procesarlas a través de un función, o una serie concatenada de funciones (usando _piping_) de forma tal de poder obtener el resultado adecuado. 
 
 Vimos que las funciones sobre colecciones se pueden clasificar de acuerdo al tipo de inputs y outputs de cada una de ellas. Detallando esta idea, en la siguiente imagen se ven algunos ejemplos de ellas, y qué tipos de inputs y outputs poseen (del libro [Stylish F#, de Kit Easton](https://link.springer.com/book/10.1007/978-1-4842-7205-3)):
 
-<img src="img/KEaston-Table4-1.png" alt="" width="400"/>
+<img src="../img/KEaston-Table4-1.png" alt="" width="400"/>
 
 
 La mayoría de estas funciones reciben como argumento una función y una lista, y devuelven una lista nueva con la transformación correspondiente. La función en general suele escribirse como una función anónima:
@@ -194,140 +216,139 @@ let almostPrettyPrintList l =
 
 ```fsharp
 champions2022 
-|> List.sortBy (fun p -> p.Number)
 |> almostPrettyPrintList
 ```
 
-    { Number = 1
-      Name = "Franco Armani"
-      Team = "River"
-      Position = GoalKeeper
-      Age = 36uy }
-    { Number = 2
-      Name = "Juan Foyth"
-      Team = "Villarreal"
-      Position = Defender
-      Age = 24uy }
-    { Number = 3
-      Name = "Nicolás Tagliafico"
-      Team = "Olympique de Lyon"
-      Position = Defender
-      Age = 30uy }
-    { Number = 4
-      Name = "Gonzalo Montiel"
-      Team = "Sevilla"
-      Position = Defender
-      Age = 25uy }
-    { Number = 5
-      Name = "Leandro Paredes"
-      Team = "Juventus"
-      Position = Midfielder
-      Age = 28uy }
-    { Number = 6
-      Name = "Germán Pezzella"
-      Team = "Betis"
-      Position = Defender
-      Age = 31uy }
-    { Number = 7
-      Name = "Rodrigo De Paul"
-      Team = "Atlético de Madrid"
-      Position = Midfielder
-      Age = 28uy }
-    { Number = 8
-      Name = "Marcos Acuña"
-      Team = "Sevilla"
-      Position = Defender
-      Age = 31uy }
-    { Number = 9
-      Name = "Julián Álvarez"
-      Team = "Manchester City"
-      Position = Forward
-      Age = 22uy }
-    { Number = 10
-      Name = "Lionel Messi"
-      Team = "París Saint-Germain"
-      Position = Forward
-      Age = 35uy }
-    { Number = 11
-      Name = "Ángel Di María"
-      Team = "Juventus"
-      Position = Forward
-      Age = 34uy }
-    { Number = 12
-      Name = "Gerónimo Rulli"
-      Team = "Villarreal"
-      Position = GoalKeeper
-      Age = 30uy }
-    { Number = 13
-      Name = "Cristian Romero"
-      Team = "Tottenham"
-      Position = Defender
-      Age = 24uy }
-    { Number = 14
-      Name = "Exequiel Palacios"
-      Team = "Bayer Leverkusen"
-      Position = Midfielder
-      Age = 24uy }
-    { Number = 15
-      Name = "Ángel Correa"
-      Team = "Atlético Madrid"
-      Position = Forward
-      Age = 27uy }
-    { Number = 16
-      Name = "Thiago Almada"
-      Team = "Atlanta United"
-      Position = Midfielder
-      Age = 21uy }
-    { Number = 17
-      Name = "Alejandro Gómez"
-      Team = "Sevilla"
-      Position = Midfielder
-      Age = 34uy }
-    { Number = 18
-      Name = "Guido Rodríguez"
-      Team = "Betis"
-      Position = Midfielder
-      Age = 28uy }
-    { Number = 19
-      Name = "Nicolás Otamendi"
-      Team = "Benfica"
-      Position = Defender
-      Age = 34uy }
-    { Number = 20
-      Name = "Alexis Mac Allister"
-      Team = "Brighton"
-      Position = Midfielder
-      Age = 23uy }
-    { Number = 21
-      Name = "Paulo Dybala"
-      Team = "Roma"
-      Position = Forward
-      Age = 29uy }
-    { Number = 22
-      Name = "Lautaro Martínez"
-      Team = "Inter"
-      Position = Forward
-      Age = 25uy }
     { Number = 23
       Name = "Emiliano Martínez"
       Team = "Aston Villa"
       Position = GoalKeeper
       Age = 30uy }
-    { Number = 24
-      Name = "Enzo Fernández"
-      Team = "Benfica"
-      Position = Midfielder
-      Age = 21uy }
-    { Number = 25
-      Name = "Lisandro Martínez"
-      Team = "Manchester United"
-      Position = Defender
-      Age = 24uy }
+    { Number = 12
+      Name = "Gerónimo Rulli"
+      Team = "Villarreal"
+      Position = GoalKeeper
+      Age = 30uy }
+    { Number = 1
+      Name = "Franco Armani"
+      Team = "River"
+      Position = GoalKeeper
+      Age = 36uy }
     { Number = 26
       Name = "Nahuel Molina"
       Team = "Atlético de Madrid"
       Position = Defender
       Age = 24uy }
+    { Number = 4
+      Name = "Gonzalo Montiel"
+      Team = "Sevilla"
+      Position = Defender
+      Age = 25uy }
+    { Number = 13
+      Name = "Cristian Romero"
+      Team = "Tottenham"
+      Position = Defender
+      Age = 24uy }
+    { Number = 6
+      Name = "Germán Pezzella"
+      Team = "Betis"
+      Position = Defender
+      Age = 31uy }
+    { Number = 19
+      Name = "Nicolás Otamendi"
+      Team = "Benfica"
+      Position = Defender
+      Age = 34uy }
+    { Number = 25
+      Name = "Lisandro Martínez"
+      Team = "Manchester United"
+      Position = Defender
+      Age = 24uy }
+    { Number = 8
+      Name = "Marcos Acuña"
+      Team = "Sevilla"
+      Position = Defender
+      Age = 31uy }
+    { Number = 3
+      Name = "Nicolás Tagliafico"
+      Team = "Olympique de Lyon"
+      Position = Defender
+      Age = 30uy }
+    { Number = 2
+      Name = "Juan Foyth"
+      Team = "Villarreal"
+      Position = Defender
+      Age = 24uy }
+    { Number = 7
+      Name = "Rodrigo De Paul"
+      Team = "Atlético de Madrid"
+      Position = Midfielder
+      Age = 28uy }
+    { Number = 5
+      Name = "Leandro Paredes"
+      Team = "Juventus"
+      Position = Midfielder
+      Age = 28uy }
+    { Number = 20
+      Name = "Alexis Mac Allister"
+      Team = "Brighton"
+      Position = Midfielder
+      Age = 23uy }
+    { Number = 18
+      Name = "Guido Rodríguez"
+      Team = "Betis"
+      Position = Midfielder
+      Age = 28uy }
+    { Number = 17
+      Name = "Alejandro Gómez"
+      Team = "Sevilla"
+      Position = Midfielder
+      Age = 34uy }
+    { Number = 24
+      Name = "Enzo Fernández"
+      Team = "Benfica"
+      Position = Midfielder
+      Age = 21uy }
+    { Number = 14
+      Name = "Exequiel Palacios"
+      Team = "Bayer Leverkusen"
+      Position = Midfielder
+      Age = 24uy }
+    { Number = 16
+      Name = "Thiago Almada"
+      Team = "Atlanta United"
+      Position = Midfielder
+      Age = 21uy }
+    { Number = 11
+      Name = "Ángel Di María"
+      Team = "Juventus"
+      Position = Forward
+      Age = 34uy }
+    { Number = 22
+      Name = "Lautaro Martínez"
+      Team = "Inter"
+      Position = Forward
+      Age = 25uy }
+    { Number = 9
+      Name = "Julián Álvarez"
+      Team = "Manchester City"
+      Position = Forward
+      Age = 22uy }
+    { Number = 21
+      Name = "Paulo Dybala"
+      Team = "Roma"
+      Position = Forward
+      Age = 29uy }
+    { Number = 15
+      Name = "Ángel Correa"
+      Team = "Atlético Madrid"
+      Position = Forward
+      Age = 27uy }
+    { Number = 10
+      Name = "Lionel Messi"
+      Team = "París Saint-Germain"
+      Position = Forward
+      Age = 35uy }
 
 
 #### Interpolated strings
