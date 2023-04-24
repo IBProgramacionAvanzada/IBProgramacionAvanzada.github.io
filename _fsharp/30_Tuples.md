@@ -8,9 +8,6 @@ tags:
 - fsharp
 ---
 
-
-
-
 Las _tuplas_ son agregados ordenados de (unos muy pocos) datos, posiblemente de distinto tipo, que en algunos casos son más convenientes que definir _records_. 
 
 ```fsharp
