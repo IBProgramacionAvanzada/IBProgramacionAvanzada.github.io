@@ -7,6 +7,7 @@ categories:
 tags:
 - fsharp
 ---
+
 Hasta ahora hemos visto el tipo de colección `list`, que es esencialmente una lista simplemente enlazada. La definición de `list` es similar a la que propusimos con `MyList`, pero 
 - es general para cualquier tipo de dato
 - utiliza símbolos adecuados en lugar de etiquetas
@@ -87,7 +88,7 @@ printfn "%A" [].Head
        at Microsoft.FSharp.Collections.FSharpList`1.get_Head() in D:\a\_work\1\s\src\FSharp.Core\prim-types.fs:line 4072
 
 
-       at <StartupCode$FSI_0065>.$FSI_0065.main@()
+       at <StartupCode$FSI_0010>.$FSI_0010.main@()
 
 
        at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
@@ -107,7 +108,7 @@ printfn "%A" [].Tail
        at Microsoft.FSharp.Collections.FSharpList`1.get_Tail() in D:\a\_work\1\s\src\FSharp.Core\prim-types.fs:line 4077
 
 
-       at <StartupCode$FSI_0066>.$FSI_0066.main@()
+       at <StartupCode$FSI_0011>.$FSI_0011.main@()
 
 
        at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
@@ -134,8 +135,6 @@ printfn "%A" l2
 ```
 
     [3; 6; 7; 8; 9]
-
-
 
 
 ### Procesando listas
@@ -173,7 +172,8 @@ type Player =
 Obviamente, el ejemplo seguirá usando los siguientes ⭐️⭐️⭐️ : 
 
 ```fsharp
-let champions2022 = [// Los 3 arqueros de Argentina en Qatar 2022
+let champions2022 = [
+    // Los 3 arqueros de Argentina en Qatar 2022
     {Number = 23; Name = "Emiliano Martínez" ;  Team = "Aston Villa"; Position = GoalKeeper; Age = 30uy};
     {Number = 12; Name = "Gerónimo Rulli" ;  Team = "Villarreal"; Position = GoalKeeper; Age = 30uy};
     {Number = 1; Name = "Franco Armani" ;  Team = "River"; Position = GoalKeeper; Age = 36uy};
@@ -354,6 +354,17 @@ champions2022
 #### Interpolated strings
 
 No es muy compacto... Podemos crear una función que nos permita imprimir el dato de cada jugador en forma más elegante. Vamos a usar _interpolated strings_ para hacerlo. Un _interpolated string_  es una cadena de caracteres que comienza con el símbolo `$`, y tiene el texto entre comillas dobles. En su interior se pueden usar los valores entre llaves `{}`. 
+
+```fsharp
+let saludo = "Hola"
+
+printfn "{saludo} Mundo"
+printfn $"{saludo} Mundo"
+```
+
+    {saludo} Mundo
+    Hola Mundo
+
 
 ```fsharp
 let toStringPlayer player = 
@@ -547,6 +558,68 @@ table th {
 </style>
 
 
+```fsharp
+champions2022
+|> List.sortBy (fun p -> p.Number)
+|> List.find (fun p -> p.Age = 21uy)
+```
+
+
+<details open="open" class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Number = 16\n  Name = "Thiago Almada"\n  Team = "Atlanta United"\n  Position = Midfielder\n  Age = 21uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Number</td><td><div class="dni-plaintext"><pre>16</pre></div></td></tr><tr><td>Name</td><td>Thiago Almada</td></tr><tr><td>Team</td><td>Atlanta United</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>21</pre></div></td></tr></tbody></table></div></details><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
+```fsharp
+champions2022
+|> List.find (fun p -> p.Age = 18uy)
+```
+
+
+    System.Collections.Generic.KeyNotFoundException: An index satisfying the predicate was not found in the collection.
+
+
+       at Microsoft.FSharp.Collections.ListModule.Find[T](FSharpFunc`2 predicate, FSharpList`1 list) in D:\a\_work\1\s\src\FSharp.Core\list.fs:line 480
+
+
+       at <StartupCode$FSI_0084>.$FSI_0084.main@()
+
+
+       at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+
+
+       at System.Reflection.MethodInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+
+
 Nótese que `List.find` devuelve el primer elemento que encuentra. Si uno quiere todos los elementos que comparten una cierta característica, usamos `List.filter`
 
 ```fsharp
@@ -556,6 +629,46 @@ champions2022
 
 
 <table><thead><tr><th><i>index</i></th><th>value</th></tr></thead><tbody><tr><td>0</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Number = 24\n  Name = "Enzo Fernández"\n  Team = "Benfica"\n  Position = Midfielder\n  Age = 21uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Number</td><td><div class="dni-plaintext"><pre>24</pre></div></td></tr><tr><td>Name</td><td>Enzo Fern&#225;ndez</td></tr><tr><td>Team</td><td>Benfica</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>21</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>1</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Number = 16\n  Name = "Thiago Almada"\n  Team = "Atlanta United"\n  Position = Midfielder\n  Age = 21uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Number</td><td><div class="dni-plaintext"><pre>16</pre></div></td></tr><tr><td>Name</td><td>Thiago Almada</td></tr><tr><td>Team</td><td>Atlanta United</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>21</pre></div></td></tr></tbody></table></div></details></td></tr></tbody></table><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
+```fsharp
+champions2022
+|> List.filter (fun p -> p.Age > 25uy && p.Position = Defender)
+```
+
+
+<table><thead><tr><th><i>index</i></th><th>value</th></tr></thead><tbody><tr><td>0</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Number = 6\n  Name = "Germán Pezzella"\n  Team = "Betis"\n  Position = Defender\n  Age = 31uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Number</td><td><div class="dni-plaintext"><pre>6</pre></div></td></tr><tr><td>Name</td><td>Germ&#225;n Pezzella</td></tr><tr><td>Team</td><td>Betis</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>31</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>1</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Number = 19\n  Name = "Nicolás Otamendi"\n  Team = "Benfica"\n  Position = Defender\n  Age = 34uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Number</td><td><div class="dni-plaintext"><pre>19</pre></div></td></tr><tr><td>Name</td><td>Nicol&#225;s Otamendi</td></tr><tr><td>Team</td><td>Benfica</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>34</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>2</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Number = 8\n  Name = "Marcos Acuña"\n  Team = "Sevilla"\n  Position = Defender\n  Age = 31uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Number</td><td><div class="dni-plaintext"><pre>8</pre></div></td></tr><tr><td>Name</td><td>Marcos Acu&#241;a</td></tr><tr><td>Team</td><td>Sevilla</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>31</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>3</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Number = 3\n  Name = "Nicolás Tagliafico"\n  Team = "Olympique de Lyon"\n  Position = Defender\n  Age = 30uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Number</td><td><div class="dni-plaintext"><pre>3</pre></div></td></tr><tr><td>Name</td><td>Nicol&#225;s Tagliafico</td></tr><tr><td>Team</td><td>Olympique de Lyon</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>30</pre></div></td></tr></tbody></table></div></details></td></tr></tbody></table><style>
 .dni-code-hint {
     font-style: italic;
     overflow: hidden;
@@ -705,6 +818,62 @@ champions2022
 |> List.iter (fun (team,l) -> 
                 printfn "%s" team 
                 prettyPrintList l
+                )
+```
+
+    Aston Villa
+    23: Emiliano Martínez (30), GoalKeeper, juega en Aston Villa
+    Villarreal
+    12: Gerónimo Rulli (30), GoalKeeper, juega en Villarreal
+    2: Juan Foyth (24), Defender, juega en Villarreal
+    River
+    1: Franco Armani (36), GoalKeeper, juega en River
+    Atlético de Madrid
+    26: Nahuel Molina (24), Defender, juega en Atlético de Madrid
+    7: Rodrigo De Paul (28), Midfielder, juega en Atlético de Madrid
+    Sevilla
+    4: Gonzalo Montiel (25), Defender, juega en Sevilla
+    8: Marcos Acuña (31), Defender, juega en Sevilla
+    17: Alejandro Gómez (34), Midfielder, juega en Sevilla
+    Tottenham
+    13: Cristian Romero (24), Defender, juega en Tottenham
+    Betis
+    6: Germán Pezzella (31), Defender, juega en Betis
+    18: Guido Rodríguez (28), Midfielder, juega en Betis
+    Benfica
+    19: Nicolás Otamendi (34), Defender, juega en Benfica
+    24: Enzo Fernández (21), Midfielder, juega en Benfica
+    Manchester United
+    25: Lisandro Martínez (24), Defender, juega en Manchester United
+    Olympique de Lyon
+    3: Nicolás Tagliafico (30), Defender, juega en Olympique de Lyon
+    Juventus
+    5: Leandro Paredes (28), Midfielder, juega en Juventus
+    11: Ángel Di María (34), Forward, juega en Juventus
+    Brighton
+    20: Alexis Mac Allister (23), Midfielder, juega en Brighton
+    Bayer Leverkusen
+    14: Exequiel Palacios (24), Midfielder, juega en Bayer Leverkusen
+    Atlanta United
+    16: Thiago Almada (21), Midfielder, juega en Atlanta United
+    Inter
+    22: Lautaro Martínez (25), Forward, juega en Inter
+    Manchester City
+    9: Julián Álvarez (22), Forward, juega en Manchester City
+    Roma
+    21: Paulo Dybala (29), Forward, juega en Roma
+    Atlético Madrid
+    15: Ángel Correa (27), Forward, juega en Atlético Madrid
+    París Saint-Germain
+    10: Lionel Messi (35), Forward, juega en París Saint-Germain
+
+
+```fsharp
+champions2022
+|> List.groupBy (fun p -> p.Team)
+|> List.iter (fun t -> 
+                printfn "%s" (fst t)
+                prettyPrintList (snd t)
                 )
 ```
 
@@ -1026,3 +1195,48 @@ table th {
 }
 </style>
 
+
+```fsharp
+menoresde30
+|> List.forall (fun (_,a) -> a < 30uy)
+
+```
+
+
+<div class="dni-plaintext"><pre>False</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
+```fsharp
+List.findIndex
+```
