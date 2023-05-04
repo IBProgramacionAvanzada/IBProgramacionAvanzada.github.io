@@ -1,12 +1,31 @@
 ---
 layout: post
-title: Más sobre colecciones y tipos de datos
+title: Ejercicios
 tagline: Un poco de mob programming 
 categories: 
 - F# as your first functional programming language
 tags:
 - fsharp
 ---
+
+### Separando en sílabas
+
+Una de las bondades del idioma español, o castellano como lo llamamos por estas latitudes, es
+que existen reglas claras para [realizar la separación de una palabra en sílabas](https://unibetas.com/como-separar-silabas). Las sílabas constituyen la forma en la cual las letras se agrupan al hablar.
+En el español, la regla fundamental es que _en toda sílaba debe haber al menos una vocal_. A partir
+de ésta, existen un conjunto de reglas que se utilizan para determinar la separación en sílabas. 
+Algunas de ellas son:
+
+- Consonantes al inicio de una palabra: Todas las consonantes que se hallen al principio de una palabra deben ir sin excepción alguna con la vocal que les sigue.
+  
+- Una consonante ubicada entre dos vocales: Si en la palabra hay una consonante entre dos vocales, debe ir acompañando a la que le sigue:
+
+- Dos consonantes ubicadas entre dos vocales: En este caso la separación de sílabas dependerá del grupo específico de consonantes. Si son “pr”, “br”, “dr”, “cr”, “fr”, “gr”, “kr”, “tr”, “fl”, “pl”, “gl”, “kl”, “cl” o “bl”, se mantienen juntas en todo momento y van unidas a la vocal que les sigue, como en Alegría: a – le – grí – a.
+
+Se propone pensar (no programar, salvo que Ud. así lo desee) cómo abordar la programación de un
+código que dada una palabra del idioma español, la separe en sílabas. 
+
+
 
 ### Alumnos en materias
 
