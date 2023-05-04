@@ -11,14 +11,14 @@ tags:
 Un `Map` es un diccionario, de modo tal que se accede a los datos a través de una llave. 
 
 ```fsharp
-let m1 = Map [1, "Apples" ; 2, "Bananas"]
+let m1 = Map [3, "Apples" ; 2, "Bananas"]
 
 printfn "%A" m1 
-printfn "%A" m1[1] 
+printfn "%A" m1[3] 
 
 ```
 
-    map [(1, "Apples"); (2, "Bananas")]
+    map [(2, "Bananas"); (3, "Apples")]
     "Apples"
 
 
@@ -36,7 +36,10 @@ printfn "%A" m1.[5]
        at Microsoft.FSharp.Collections.MapTreeModule.find[TKey,TValue](IComparer`1 comparer, TKey k, MapTree`2 m) in D:\a\_work\1\s\src\FSharp.Core\map.fs:line 196
 
 
-       at <StartupCode$FSI_0042>.$FSI_0042.main@()
+       at Microsoft.FSharp.Collections.FSharpMap`2.get_Item(TKey key) in D:\a\_work\1\s\src\FSharp.Core\map.fs:line 777
+
+
+       at <StartupCode$FSI_0011>.$FSI_0011.main@()
 
 
        at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
@@ -48,12 +51,12 @@ printfn "%A" m1.[5]
 A diferencia de las listas, es posible crear nuevos diccionarios usando funciones para agregar o cambiar ciertos valores:
 
 ```fsharp
-let m2 = m1.Add(3,"Oranges")
+let m2 = m1.Add(4,"Oranges")
 printfn "%A" m2
 
 ```
 
-    map [(1, "Apples"); (2, "Bananas"); (3, "Oranges")]
+    map [(2, "Bananas"); (3, "Apples"); (4, "Oranges")]
 
 
 ```fsharp
@@ -63,8 +66,8 @@ printfn "%A" m3
 
 ```
 
-    map [(1, "Apples"); (2, "Bananas"); (3, "Oranges")]
-    map [(1, "Apples"); (2, "Peaches"); (3, "Oranges")]
+    map [(2, "Bananas"); (3, "Apples"); (4, "Oranges")]
+    map [(2, "Peaches"); (3, "Apples"); (4, "Oranges")]
 
 
 Veamos algunas funciones similares con el ejemplo de los ⭐️⭐️⭐️:
@@ -288,7 +291,7 @@ champions2022
        at Microsoft.FSharp.Collections.MapModule.Find[TKey,T](TKey key, FSharpMap`2 table) in D:\a\_work\1\s\src\FSharp.Core\map.fs:line 1148
 
 
-       at <StartupCode$FSI_0029>.$FSI_0029.main@()
+       at <StartupCode$FSI_0039>.$FSI_0039.main@()
 
 
        at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
@@ -420,6 +423,166 @@ champions2022
 
 
 <div class="dni-plaintext"><pre>False</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
+```fsharp
+Map.keys champions2022
+```
+
+
+<div class="dni-plaintext"><pre>[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ... (6 more) ]</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
+```fsharp
+champions2022
+|> Map.toList 
+|> List.map (fun (k,_)-> k)
+```
+
+
+<div class="dni-plaintext"><pre>[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ... (more) ]</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
+```fsharp
+Map.values champions2022
+```
+
+
+<table><thead><tr><th><i>index</i></th><th>value</th></tr></thead><tbody><tr><td>0</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Franco Armani"\n  Team = "River"\n  Position = GoalKeeper\n  Age = 36uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Franco Armani</td></tr><tr><td>Team</td><td>River</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>GoalKeeper</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>36</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>1</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Juan Foyth"\n  Team = "Villarreal"\n  Position = Defender\n  Age = 24uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Juan Foyth</td></tr><tr><td>Team</td><td>Villarreal</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>24</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>2</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Nicolás Tagliafico"\n  Team = "Olympique de Lyon"\n  Position = Defender\n  Age = 30uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Nicol&#225;s Tagliafico</td></tr><tr><td>Team</td><td>Olympique de Lyon</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>30</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>3</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Gonzalo Montiel"\n  Team = "Sevilla"\n  Position = Defender\n  Age = 25uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Gonzalo Montiel</td></tr><tr><td>Team</td><td>Sevilla</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>25</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>4</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Leandro Paredes"\n  Team = "Juventus"\n  Position = Midfielder\n  Age = 28uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Leandro Paredes</td></tr><tr><td>Team</td><td>Juventus</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>28</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>5</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Germán Pezzella"\n  Team = "Betis"\n  Position = Defender\n  Age = 31uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Germ&#225;n Pezzella</td></tr><tr><td>Team</td><td>Betis</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>31</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>6</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Rodrigo De Paul"\n  Team = "Atlético de Madrid"\n  Position = Midfielder\n  Age = 28uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Rodrigo De Paul</td></tr><tr><td>Team</td><td>Atl&#233;tico de Madrid</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>28</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>7</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Marcos Acuña"\n  Team = "Sevilla"\n  Position = Defender\n  Age = 31uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Marcos Acu&#241;a</td></tr><tr><td>Team</td><td>Sevilla</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>31</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>8</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Julián Álvarez"\n  Team = "Manchester City"\n  Position = Forward\n  Age = 22uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Juli&#225;n &#193;lvarez</td></tr><tr><td>Team</td><td>Manchester City</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Forward</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>22</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>9</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Lionel Messi"\n  Team = "París Saint-Germain"\n  Position = Forward\n  Age = 35uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Lionel Messi</td></tr><tr><td>Team</td><td>Par&#237;s Saint-Germain</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Forward</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>35</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>10</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Ángel Di María"\n  Team = "Juventus"\n  Position = Forward\n  Age = 34uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>&#193;ngel Di Mar&#237;a</td></tr><tr><td>Team</td><td>Juventus</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Forward</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>34</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>11</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Gerónimo Rulli"\n  Team = "Villarreal"\n  Position = GoalKeeper\n  Age = 30uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Ger&#243;nimo Rulli</td></tr><tr><td>Team</td><td>Villarreal</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>GoalKeeper</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>30</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>12</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Cristian Romero"\n  Team = "Tottenham"\n  Position = Defender\n  Age = 24uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Cristian Romero</td></tr><tr><td>Team</td><td>Tottenham</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>24</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>13</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Exequiel Palacios"\n  Team = "Bayer Leverkusen"\n  Position = Midfielder\n  Age = 24uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Exequiel Palacios</td></tr><tr><td>Team</td><td>Bayer Leverkusen</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>24</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>14</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Ángel Correa"\n  Team = "Atlético Madrid"\n  Position = Forward\n  Age = 27uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>&#193;ngel Correa</td></tr><tr><td>Team</td><td>Atl&#233;tico Madrid</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Forward</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>27</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>15</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Thiago Almada"\n  Team = "Atlanta United"\n  Position = Midfielder\n  Age = 21uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Thiago Almada</td></tr><tr><td>Team</td><td>Atlanta United</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>21</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>16</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Alejandro Gómez"\n  Team = "Sevilla"\n  Position = Midfielder\n  Age = 34uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Alejandro G&#243;mez</td></tr><tr><td>Team</td><td>Sevilla</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>34</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>17</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Guido Rodríguez"\n  Team = "Betis"\n  Position = Midfielder\n  Age = 28uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Guido Rodr&#237;guez</td></tr><tr><td>Team</td><td>Betis</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>28</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>18</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Nicolás Otamendi"\n  Team = "Benfica"\n  Position = Defender\n  Age = 34uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Nicol&#225;s Otamendi</td></tr><tr><td>Team</td><td>Benfica</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>34</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>19</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Alexis Mac Allister"\n  Team = "Brighton"\n  Position = Midfielder\n  Age = 23uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Alexis Mac Allister</td></tr><tr><td>Team</td><td>Brighton</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>23</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td colspan="2"><i>... (more)</i></td></tr></tbody></table><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style>
+
+
+```fsharp
+champions2022
+|> Map.toList 
+|> List.map (fun (_,v)-> v)
+```
+
+
+<table><thead><tr><th><i>index</i></th><th>value</th></tr></thead><tbody><tr><td>0</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Franco Armani"\n  Team = "River"\n  Position = GoalKeeper\n  Age = 36uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Franco Armani</td></tr><tr><td>Team</td><td>River</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>GoalKeeper</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>36</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>1</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Juan Foyth"\n  Team = "Villarreal"\n  Position = Defender\n  Age = 24uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Juan Foyth</td></tr><tr><td>Team</td><td>Villarreal</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>24</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>2</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Nicolás Tagliafico"\n  Team = "Olympique de Lyon"\n  Position = Defender\n  Age = 30uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Nicol&#225;s Tagliafico</td></tr><tr><td>Team</td><td>Olympique de Lyon</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>30</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>3</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Gonzalo Montiel"\n  Team = "Sevilla"\n  Position = Defender\n  Age = 25uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Gonzalo Montiel</td></tr><tr><td>Team</td><td>Sevilla</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>25</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>4</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Leandro Paredes"\n  Team = "Juventus"\n  Position = Midfielder\n  Age = 28uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Leandro Paredes</td></tr><tr><td>Team</td><td>Juventus</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>28</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>5</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Germán Pezzella"\n  Team = "Betis"\n  Position = Defender\n  Age = 31uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Germ&#225;n Pezzella</td></tr><tr><td>Team</td><td>Betis</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>31</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>6</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Rodrigo De Paul"\n  Team = "Atlético de Madrid"\n  Position = Midfielder\n  Age = 28uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Rodrigo De Paul</td></tr><tr><td>Team</td><td>Atl&#233;tico de Madrid</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>28</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>7</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Marcos Acuña"\n  Team = "Sevilla"\n  Position = Defender\n  Age = 31uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Marcos Acu&#241;a</td></tr><tr><td>Team</td><td>Sevilla</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>31</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>8</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Julián Álvarez"\n  Team = "Manchester City"\n  Position = Forward\n  Age = 22uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Juli&#225;n &#193;lvarez</td></tr><tr><td>Team</td><td>Manchester City</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Forward</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>22</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>9</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Lionel Messi"\n  Team = "París Saint-Germain"\n  Position = Forward\n  Age = 35uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Lionel Messi</td></tr><tr><td>Team</td><td>Par&#237;s Saint-Germain</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Forward</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>35</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>10</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Ángel Di María"\n  Team = "Juventus"\n  Position = Forward\n  Age = 34uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>&#193;ngel Di Mar&#237;a</td></tr><tr><td>Team</td><td>Juventus</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Forward</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>34</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>11</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Gerónimo Rulli"\n  Team = "Villarreal"\n  Position = GoalKeeper\n  Age = 30uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Ger&#243;nimo Rulli</td></tr><tr><td>Team</td><td>Villarreal</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>GoalKeeper</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>30</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>12</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Cristian Romero"\n  Team = "Tottenham"\n  Position = Defender\n  Age = 24uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Cristian Romero</td></tr><tr><td>Team</td><td>Tottenham</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>24</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>13</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Exequiel Palacios"\n  Team = "Bayer Leverkusen"\n  Position = Midfielder\n  Age = 24uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Exequiel Palacios</td></tr><tr><td>Team</td><td>Bayer Leverkusen</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>24</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>14</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Ángel Correa"\n  Team = "Atlético Madrid"\n  Position = Forward\n  Age = 27uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>&#193;ngel Correa</td></tr><tr><td>Team</td><td>Atl&#233;tico Madrid</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Forward</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>27</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>15</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Thiago Almada"\n  Team = "Atlanta United"\n  Position = Midfielder\n  Age = 21uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Thiago Almada</td></tr><tr><td>Team</td><td>Atlanta United</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>21</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>16</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Alejandro Gómez"\n  Team = "Sevilla"\n  Position = Midfielder\n  Age = 34uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Alejandro G&#243;mez</td></tr><tr><td>Team</td><td>Sevilla</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>34</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>17</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Guido Rodríguez"\n  Team = "Betis"\n  Position = Midfielder\n  Age = 28uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Guido Rodr&#237;guez</td></tr><tr><td>Team</td><td>Betis</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>28</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>18</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Nicolás Otamendi"\n  Team = "Benfica"\n  Position = Defender\n  Age = 34uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Nicol&#225;s Otamendi</td></tr><tr><td>Team</td><td>Benfica</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Defender</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>34</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td>19</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>{ Name = "Alexis Mac Allister"\n  Team = "Brighton"\n  Position = Midfielder\n  Age = 23uy }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td>Alexis Mac Allister</td></tr><tr><td>Team</td><td>Brighton</td></tr><tr><td>Position</td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Midfielder</code></span></summary><div><table><thead><tr></tr></thead><tbody></tbody></table></div></details></td></tr><tr><td>Age</td><td><div class="dni-plaintext"><pre>23</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td colspan="2"><i>... (more)</i></td></tr></tbody></table><style>
 .dni-code-hint {
     font-style: italic;
     overflow: hidden;
