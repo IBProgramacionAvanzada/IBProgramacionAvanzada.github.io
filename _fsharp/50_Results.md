@@ -1,3 +1,13 @@
+---
+layout: post
+title: El tipo Result 
+tagline: Cuando las cosas no salen bien
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
+
 Hemos visto que las excepciones que emite un programa pueden alterar el flujo de trabajo del mismo. En el caso en que las excepciones no son capturadas, el programa simplemente termina, con los consiguientes perjucios para el usuario.
 
 Vimos también que tenemos la posibilidad de emitir nuestras propias excepciones, sin utilizar las propias del sistema operativo. 

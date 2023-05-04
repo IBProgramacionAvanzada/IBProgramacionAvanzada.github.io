@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dos Katas clásicos
+title: Otro Kata clásico
 tagline: Un poco de mob programming 
 categories: 
 - F# as your first functional programming language
