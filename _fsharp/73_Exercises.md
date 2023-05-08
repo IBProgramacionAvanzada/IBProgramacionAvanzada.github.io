@@ -1,19 +1,16 @@
 ---
 layout: post
-title: Leyendo datos
-tagline: Un poco de mob programming 
+title: Ejercicios
+tagline: Leyendo datos, y volviendo a la máquina expendedora
 categories: 
 - F# as your first functional programming language
 tags:
 - fsharp
 ---
 
-
-
 ### Nutrientes en la alimentación
 
 > Haga el ejercicio de producir el código **sin mirar el archivo de datos!!** 
-
 
 El archivo [food.csv]() extraído de [acá](https://data.nal.usda.gov/) contiene datos de nutrientes de una gran cantidad de productos de alimentación. Los datos corresponden en cada caso a 100 g de cada 
 producto alimenticio. Cada fila del archivo corresponde a un producto distinto.
