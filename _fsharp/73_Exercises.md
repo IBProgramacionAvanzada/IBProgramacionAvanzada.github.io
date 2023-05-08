@@ -12,7 +12,7 @@ tags:
 
 > Haga el ejercicio de producir el código **sin mirar el archivo de datos!!** 
 
-El archivo [food.csv]() extraído de [acá](https://data.nal.usda.gov/) contiene datos de nutrientes de una gran cantidad de productos de alimentación. Los datos corresponden en cada caso a 100 g de cada 
+El archivo [food.csv](https://github.com/fcolavecchia/fp-course-public/blob/main/data/food.csv) extraído de [acá](https://data.nal.usda.gov/) contiene datos de nutrientes de una gran cantidad de productos de alimentación. Los datos corresponden en cada caso a 100 g de cada 
 producto alimenticio. Cada fila del archivo corresponde a un producto distinto.
 
 
