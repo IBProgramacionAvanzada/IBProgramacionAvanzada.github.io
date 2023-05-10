@@ -8,6 +8,30 @@ tags:
 - fsharp
 ---
 
+### Horario de atención
+
+Nos han encargado un programa sencillo para manejar el [horario de atención](https://github.com/christian-fei/opening-hours-kata) 
+al público de un bar. Los requerimientos son los siguientes
+
+- Los días de apertura y las horas de atención deben ser configurables. Por ejemplo, Lunes, Miércoles y Viernes de 9 a 18. 
+  (El bar tiene horario corrido).
+- Es necesario poder mostrar el próximo día que el bar está abierto en un cartel en la ventana del bar.
+- Además es necesario proveer de una función que indique si en un determinado día y horario, el bar está abierto.
+
+Los prototipos de las funciones son
+
+```fsharp
+isOpenOn: System.DateTime -> bool
+nextOpeningDate: System.DateTime -> date 
+```
+
+> Las funciones usan la biblioteca [`System.DateTime`](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0#initialization-01) para representar los días y horarios. Por ejemplo:
+
+
+
+
+
+
 ### Derivada simbólica
 
 El siguiente tipo de dato representa una variable matemática (`Expr.Var`), un número (`Expr.Num`) y dos operaciones, suma (`Expr.Sum`) y producto (`Expr.Prod`):
