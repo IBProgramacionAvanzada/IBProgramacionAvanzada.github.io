@@ -8,6 +8,12 @@ tags:
 - fsharp
 ---
 
+
+### The Beatles
+
+Usando el _type provider_  de CSV que vimos en la clase, y [los datos de las canciones de
+los Beatles](https://github.com/fcolavecchia/fp-course-public/blob/main/data/The%20Beatles%20songs%20dataset.csv), haga una lista de los tres años más productivos de su carrera.
+
 ### Horario de atención
 
 Nos han encargado un programa sencillo para manejar el [horario de atención](https://github.com/christian-fei/opening-hours-kata) 
@@ -18,18 +24,31 @@ al público de un bar. Los requerimientos son los siguientes
 - Es necesario poder mostrar el próximo día que el bar está abierto en un cartel en la ventana del bar.
 - Además es necesario proveer de una función que indique si en un determinado día y horario, el bar está abierto.
 
-Los prototipos de las funciones son
+Las funciones necesarias son
 
+- `isOpenOn`: dada una fecha, determina si el bar está abierto o no
+- `nextOpeningDate`: dada una fecha, calcula el siguiente día que está abierto el bar
+
+Hint: Para manejar fechas, se puede usar la biblioteca [`System.DateTime`], por ejemplo:
+ 
 ```fsharp
-isOpenOn: System.DateTime -> bool
-nextOpeningDate: System.DateTime -> date 
+// crea la fecha con año, mes, día, hora, minutos y segundos
+let date1 = DateTime(2022, 5, 11, 14, 30, 52)
+
+// Ahora, ahora en UTC y el día de hoy
+let date1 = DateTime.Now
+let date2 = DateTime.UtcNow
+let date3 = DateTime.Today
+
+// Se pueden sumar o restar duraciones:
+let today = DateTime.Now
+let duration = TimeSpan(1, 0, 0, 0) // duración de un día, 0 horas, 0 minutos y 0 segundos
+let tomorrow = today.Add duration
+printfn $"{today:ddd}" // Thu
+printfn $"{tomorrow:ddd}" // Fri
 ```
 
-> Las funciones usan la biblioteca [`System.DateTime`](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0#initialization-01) para representar los días y horarios. Por ejemplo:
-
-
-
-
+La documentación completa de la biblioteca se encuentra [acá](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0#initialization-01), con muchos ejemplos.
 
 
 ### Derivada simbólica
@@ -89,6 +108,6 @@ show t
 da como resultado `3+1`, en lugar de `4` como quisiéramos. 
 
 - Escriba funciones para simplificar los casos más habituales (suma con 0, multiplicación con 1, etc.)
-- Escriba una nueva función `simplifyDiff` que dada una expresión `Expr`, de como resultado `string` que represente la derivada.
-- La función `show` tiene limitaciones, cuáles son? Explore las formas en que se podrían superar esos problemas.
-  
+- Modifique la función `diff` de modo tal que dada una expresión `Expr`, de como resultado un `string` que represente la derivada simplificada utilizando
+  las funciones del item anterior.
+- Explore las limitaciones de la función `show`, y analice cuáles serían las maneras de resolverlas.
