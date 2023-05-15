@@ -8,7 +8,7 @@ tags:
 - fsharp
 ---
 
-Ver [Trabajo Práctico 3](https://github.com/IBProgramacionAvanzada/c3p0/tree/main/TP3).
+Ver [Trabajo Práctico 3](https://github.com/IBProgramacionAvanzada/c3p0/blob/main/TP3/TP3.md).
 
 <!-- 
 ### La aplicación de la máquina expendedora (1/3)
