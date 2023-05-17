@@ -1,0 +1,10 @@
+[
+    {
+        "title" : "¿Qué es F#?",
+        "files" : [ "00_Intro",
+                    "02_Functions_new",
+                    "01_Fundamentals_new",
+                    "03_Exercises"
+        ]
+    }
+]

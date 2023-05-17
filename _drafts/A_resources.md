@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Resources
+title: Resources 
 categories: 
-- Programming
+- F# as your first functional programming language
+date: 2023-01-21
 tags:
 - fsharp
 ---
 
-<!-- ## F# Resources -->
 
 This is an opinionated list of web resources and books that helped me with F\#. These are books and sites I use frequently, for a more
 a complete list of resources, check [the list of the F\# Foundation](https://fsharp.org/learn/) and [the learning resources in Microsoft .NET site](https://dotnet.microsoft.com/en-us/learn/fsharp).
@@ -51,3 +51,9 @@ Scott's presentations in YouTube.
 
 - [What I wish I knew when learning F#](https://danielbachler.de/2020/12/23/what-i-wish-i-knew-when-learning-fsharp.html), by Daniel Bachler. 
 - [A nice thread on reusability of binding names](https://github.com/dotnet/fsharp/issues/9900).
+- [Decoupling decisions from effects](https://blog.ploeh.dk/2016/09/26/decoupling-decisions-from-effects/), by Mark Seemann.
+- [Dependency Rejection](https://blog.ploeh.dk/2017/02/02/dependency-rejection/), by Mark Seemann.
+
+### `fun` stuff
+[The interview](https://aphyr.com/posts/342-typing-the-technical-interview).
+

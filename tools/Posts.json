@@ -1,0 +1,21 @@
+[
+    {
+        "title" : "¿Qué es F#?",
+        "files" : [ 
+            "00_Intro",
+            "02_Functions_new",
+            "01_Fundamentals_new",
+            "03_Exercises"
+        ]
+    },
+    {
+        "title" : "Más sobre funciones",
+        "files" : [
+            "12_DiscriminatedUnions_es",
+            "13_Records_es",
+            "10_MasSobreFunciones",
+            "14_Exercises",
+            "11_IntroToTypes_es"
+        ]
+    }
+]
