@@ -8,6 +8,10 @@ tags:
 - fsharp
 ---
 
+### El video de la semana
+
+[_The lazy programmer's guide to writing 1000's of tests_,Scott Wlaschin](https://www.youtube.com/watch?v=IYzDFHx6QPY&ab_channel=NDCConferences)
+
 ### Interpolación Lineal
 
 Nos han encomendado que escribamos una función que dadas dos listas `x` e `y` de números de punto flotante,
