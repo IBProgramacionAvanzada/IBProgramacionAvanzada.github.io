@@ -39,7 +39,8 @@ Entonces:
 
   - `x` e `y` tienen distintos tamaños.
   - `x` tiene elementos iguales
-    y devuelva el valor `Ok y0` interpolado si las validaciones son exitosas.
+  
+  y devuelva el valor `Ok y0` interpolado si las validaciones son exitosas.
 
 - Modifique los tests para contemplar los casos anteriores.
 

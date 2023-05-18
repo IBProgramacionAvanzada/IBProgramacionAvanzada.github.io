@@ -84,9 +84,9 @@ collections:
       - 83_Exercises.md 
       - 90_Dotnet.md
       - 93_Exercises.md
-      - 100_Tests.md 
-      - 103_Exercises.md 
-      - A_resources.md 
+      - A0_Tests.md 
+      - A3_Exercises.md 
+      - B_resources.md 
 
   # fsharpNext:
   #   output: true
