@@ -86,7 +86,8 @@ collections:
       - 93_Exercises.md
       - A0_Tests.md 
       - A3_Exercises.md 
-      - B_resources.md 
+      - B_GildedRose.md
+      - Y_resources.md
 
   # fsharpNext:
   #   output: true
