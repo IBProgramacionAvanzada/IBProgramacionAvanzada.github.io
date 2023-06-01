@@ -29,10 +29,6 @@ para ello se provee de [este repositorio](https://github.com/fcolavecchia/Gilded
   
 Haga el fork correspondiente y happy refactoring!  
 
-
-
-
-
 ## Especificaciones de la Rosa Dorada (Gilded Rose)
 
 Bienvenido al equipo de **Gilded Rose**.

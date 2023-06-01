@@ -87,6 +87,7 @@ collections:
       - A0_Tests.md 
       - A3_Exercises.md 
       - B_GildedRose.md
+      - C_AdventOfCodeDay2.md
       - Y_resources.md
 
   # fsharpNext:
