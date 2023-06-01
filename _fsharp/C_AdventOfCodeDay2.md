@@ -30,9 +30,9 @@ Como no se puede estar seguro de si el Elfo está tratando de ayudar o no, hay q
 
 Por ejemplo, dada la siguiente guía de estrategia:
 
-A Y
-B X
-C Z
+A Y  
+B X  
+C Z  
 
 Esta guía de estrategia predice y recomienda lo siguiente:
 
