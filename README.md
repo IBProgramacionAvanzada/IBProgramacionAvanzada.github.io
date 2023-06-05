@@ -1,8 +1,3 @@
----
-layout: home
-title: Programación Avanzada
-permalink: /
----
 
 Te damos la bienvenida al curso de _Programación Avanzada_ del Instituto Balseiro. En este sitio encontrarás el material del curso (a veces en castellano, a veces en inglés). El único requisito es estar familiarizado previamente con algún lenguaje de programación.
 

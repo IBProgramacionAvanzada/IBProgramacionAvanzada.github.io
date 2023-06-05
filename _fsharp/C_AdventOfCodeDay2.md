@@ -30,9 +30,9 @@ Como no se puede estar seguro de si el Elfo está tratando de ayudar o no, hay q
 
 Por ejemplo, dada la siguiente guía de estrategia:
 
-A Y
-B X
-C Z
+A Y  
+B X  
+C Z  
 
 Esta guía de estrategia predice y recomienda lo siguiente:
 
@@ -56,5 +56,5 @@ Ahora con la guía de estrategia ultrasecreta correctamente descifrada, se obten
 
 Siguiendo las nuevas instrucciones del duende para la segunda columna, ¿cuál sería tu puntaje total si todo sale exactamente de acuerdo con tu guía de estrategia?
 
-El archivo completo con el inventario de caloría de los Elfos se encuentra [acá](https://adventofcode.com/2022/day/2/input).
+El archivo completo con el inventario de caloría de los Elfos se encuentra [acá](https://github.com/IBProgramacionAvanzada/IBProgramacionAvanzada.github.io/tree/master/assets/day2.input).
 
