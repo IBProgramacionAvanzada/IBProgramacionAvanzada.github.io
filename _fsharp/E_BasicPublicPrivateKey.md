@@ -16,7 +16,7 @@ Luego se busca $d$ como un número entero coprimo de $(p-1)(q-1)$, esto es, el m
 
 Finalmente, se encuentra $e$ que es el _inverso multiplicativo_ de $d$ módulo $(p-1)(q-1)$, esto es:
 
-$e \times d = 1 \mod [(p-1)(q-1)]$
+$e \times d = 1 \mod ((p-1)(q-1))$
 
 
 
@@ -74,15 +74,15 @@ printfn $"{e} * {d} mod ({p-1} * {q-1}) = {e*d} mod({(p-1) * (q-1)}) = {e*d % b}
 
 
 ```fsharp
-let publicKey = (n,e)
-let privateKey = (n,d)
+let publicKey = (n,d)
+let privateKey = (n,e)
 ```
 
 Encriptar el mensaje M 
 
 $C = M^e (\mod n)$
 
-Desecriptar C
+Desencriptar C
 
 $M = C^d (\mod n)$ 
 
