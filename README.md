@@ -1,7 +1,7 @@
 
 Te damos la bienvenida al curso de _Programación Avanzada_ del Instituto Balseiro. En este sitio encontrarás el material del curso (a veces en castellano, a veces en inglés). El único requisito es estar familiarizado previamente con algún lenguaje de programación.
 
-El curso apunta a exponer al estudiante a un lenguaje de programación funcional. En esta versión del curso, se utiliza [F\#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp). Sin embargo, no se trata exclusivamente de un curso para aprender un lenguaje, sino que también visitaremos otros aspectos de la programación que son relevantes y pueden practicarse con cualquier lenguaje. Tocaremos algunos temas de diseño de software y de técnicas de programación. Por otra parte, repasaremos fundamentos formales de la programación funcional, para poner en contexto este paradigma.
+El curso apunta a exponer al estudiante a un lenguaje de programación funcional. En esta versión del curso, se utiliza [F\#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp). Sin embargo, no se trata exclusivamente de un curso para aprender un lenguaje, ya que visitaremos otros aspectos de la programación que son relevantes y pueden practicarse con cualquier lenguaje. Tocaremos algunos temas de diseño de software y de técnicas de programación. Por otra parte, repasaremos fundamentos formales de la programación funcional, para poner en contexto este paradigma.
 
 
 
@@ -9,7 +9,7 @@ El curso apunta a exponer al estudiante a un lenguaje de programación funcional
 
 ### Links
 
-La documentación del curso está acá [https://tinyurl.com/ibadv](https://tinyurl.com/ibadv).
+La documentación del curso está [acá](https://tinyurl.com/ibadv).
 
 Para empezar, podemos programar en F# en [Fable Repl](https://fable.io/repl/).
 
@@ -41,9 +41,9 @@ al juego completo de herramientas. Para poder utilizar F# en Jupyter notebooks, 
 Para instalar el toolchain en ubuntu 22.04, es necesario [seguir algunos pasos detalladamente](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu).
 
 - Remover versiones anteriores de .NET instaladas quizás desde los paquetes nativos de ubuntu. 
-- Como _Polyglot Notebooks_ es compatible con .NET 7.0, que [requiere ser instalada manualmente en esta versión de ubuntu](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository).
+- Como _Polyglot Notebooks_ es compatible con .NET 8.0, que [requiere ser instalada manualmente en esta versión de ubuntu](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository).
 
-```bash
+<!-- ```bash
 # Get Ubuntu version
 declare repo_version=$(if command -v lsb_release &> /dev/null; then lsb_release -r -s; else grep -oP '(?<=^VERSION_ID=).+' /etc/os-release | tr -d '"'; fi)
 
@@ -54,20 +54,20 @@ wget https://packages.microsoft.com/config/ubuntu/$repo_version/packages-microso
 sudo dpkg -i packages-microsoft-prod.deb
 
 # Clean up
-rm packages-microsoft-prod.deb
-
+rm packages-microsoft-prod.deb -->
+```bash 
 # Update packages
 sudo apt update
 ```
-La salida de todas estas instrucciones debiera parecerse a esto:
-![Instalación de .NET 7.0 en Ubuntu 22.04](/img/dotnet-install-22.04.png)
-
+<!-- La salida de todas estas instrucciones debiera parecerse a esto:
+![Instalación de .NET 8.0 en Ubuntu 22.04](/img/dotnet-install-22.04.png)
+ -->
 
 
 - Luego instalar el SDK con 
 
 ```bash
-sudo apt install dotnet-sdk-7.0
+sudo apt install dotnet-sdk-8.0
 ```
 
 - Finalmente, abrir VSCode e instalar la extensión Polyglot Notebooks. La misma extensión instalará una versión
