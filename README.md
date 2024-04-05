@@ -78,22 +78,64 @@ sudo apt install dotnet-sdk-8.0
 
 
 
-<!-- ### Videos
+### Videos
 
 En este momento del siglo XXI, no hay manera de escapar a la información que viene en videos. En el siguiente link
 hay una lista de videos que con temas asociados a la materia. 
 
 [Videos de programación](https://youtube.com/playlist?list=PLnMc6Rr34vPYU5liVvEL_irif5XJQoBpK). 
- -->
 
 
 
 
-<!-- ### Jupyter notebooks
+
+### Jupyter notebooks
 
 > Veremos esto a partir de la clase 1.
 
-El curso está editado en una serie de Jupyter notebooks, que permiten trabajar en forma interactiva. Si bien después de las primeras clases se recomienda instalar todo el _toolchain_  de aprendizaje y desarrollo localmente, se puede utilizar los contenidos
+## Inicio rápido
+
+El curso está estructurado como una colección de [Jupyter Notebooks Políglotas](https://devblogs.microsoft.com/dotnet/announcing-polyglot-notebooks-harness-the-power-of-multilanguage-notebooks-in-visual-studio-code/).
+Un [Jupyter Notebook](https://jupyter.org/) es una aplicación sencilla que permite ejecutar bloques de código en celdas, que pueden entrelazarse con texto, gráficos, matemáticas, etc. El cuaderno se conecta a un _kernel_ que se encarga de ejecutar el código, y se ejecuta en un navegador web. El lenguaje más popular utilizado en los notebooks es Python, sin embargo, se pueden usar muchos lenguajes diferentes. Un cuaderno políglota incluye la posibilidad de ejecutar varios lenguajes, entre ellos F#.
+
+Para ejecutar las lecciones tal como están, simplemente abre este repositorio en MyBinder:
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fcolavecchia/fp-course-public.git/main?labpath=es%2F00_Index.ipynb)
+
+Dale un poco de tiempo y esto abrirá los cuadernos en tu navegador web.
+
+Abre el que prefieras, verifica que el `Kernel` en el lado derecho esté correctamente seleccionado:
+
+Detectará automáticamente .NET C#, 
+
+<img src="img/i-do-not-want-csharp.png" alt="I do not want C#" width="400"/>
+
+pero ese no es el lenguaje que estás buscando:
+
+<img src="img/i-want-fsharp.png" alt="This is it" width="400"/>
+
+Y estás listo para comenzar.
+
+### Haz tu copia (Fork it)
+
+Si quieres experimentar con las guías, hacer los ejercicios, etc., es mejor obtener tu propia copia de este repositorio haciendo [fork](https://github.com/fcolavecchia/fp-course-public).
+
+#### Usando Binder para ejecutar tu repositorio
+
+Una vez que hagas fork del repositorio, ve a [MyBinder](https://mybinder.org/). Llegarás a esta página:
+
+
+<img src="img/mybinder-config.png" alt="Binder landing page" width="400"/>
+
+
+Copia la URL de tu repositorio bifurcado en el campo `GitHub`, y puedes dejar en blanco los campos `Git ref` y `Path to a notebook`. Haz clic en `launch`` y espera un momento hasta que MyBinder haga su magia.
+
+Una vez abierto el Binder, haz clic en el directorio `es` (en español) o `en` (versión en inglés) en el panel izquierdo, y verás todos los cuadernos disponibles.
+
+Sigue las instrucciones anteriores para seleccionar el kernel de F#.
+
+
+<!-- El curso está editado en una serie de Jupyter notebooks, que permiten trabajar en forma interactiva. Si bien después de las primeras clases se recomienda instalar todo el _toolchain_  de aprendizaje y desarrollo localmente, se puede utilizar los contenidos
 en [Binder](https://mybinder.org). Para ello:
 
 - Con su usuario de GitHub, haga un _fork_ del repositorio [https://github.com/fcolavecchia/fp-course](). 
