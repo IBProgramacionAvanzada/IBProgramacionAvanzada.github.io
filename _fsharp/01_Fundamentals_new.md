@@ -1,12 +1,4 @@
----
-layout: post
-title: Fundamentos
-date: 2023-01-21
-categories: 
-- F# as your first functional programming language
-tags:
-- fsharp
----
+## Fundamentos
 
 
 
@@ -19,7 +11,7 @@ Aprender un nuevo lenguaje _y_ un nuevo paradigma de programación es una aventu
 F\#, como cualquier otro lenguaje informático, tiene su propia sintaxis y peculiaridades que es necesario comprender. Pero aprender el paradigma funcional requiere dejar de lado algunos conceptos que a uno le gustan mucho y que usa en la programación diaria en lenguajes imperativos u orientados a objetos.
 
 > Esta diferencia tiene profundas raíces en el mismo origen de la informática.
-> Al principio, había dos enfoques de computación formal mutuamente equivalentes, uno desarrollado por Alan Turing con su [computing machine](https://londmathsoc.onlinelibrary.wiley.com/doi/epdf/10.1112/plms/s2-42.1.230), mientras que el otro fue desarrollado por Alonzo Church con su [computing machine](https://londmathsoc.onlinelibrary.wiley.com/doi/epdf/10.1112/plms/s2-42.1.230). Ambos enfoques evolucionaron en paralelo y dieron lugar a diferentes ramas de estilos de programación.
+> Al principio, había dos enfoques de computación formal mutuamente equivalentes, uno desarrollado por Alan Turing con su [computing machine](https://londmathsoc.onlinelibrary.wiley.com/doi/epdf/10.1112/plms/s2-42.1.230), mientras que el otro fue desarrollado por Alonzo Church con su [cálculo lambda](https://ics.uci.edu/~lopes/teaching/inf212W12/readings/church.pdf). Ambos enfoques evolucionaron en paralelo y dieron lugar a diferentes ramas de estilos de programación.
 > La programación funcional no es nueva en absoluto. LISP, el primer lenguaje de programación funcional apareció en 1958, apenas un año antes de su
 > contrapartida imperativa, Fortran.
 >
@@ -27,7 +19,7 @@ F\#, como cualquier otro lenguaje informático, tiene su propia sintaxis y pecul
 
 Aunque finalmente no adopte el paradigma funcional, agregar un nuevo estilo de lenguaje a sus activos le brindará la experiencia para revisar viejos hábitos de programación con nuevos ojos, brindando una comprensión más profunda y un ajuste más fino de su código. ¡Te convertirás en un mejor programador, definitivamente!
 
-F\# es uno de los lenguajes proporcionados por .NET (junto con C# y Visual Basic). Como tal, F\# está estrechamente integrado con todas las herramientas y bibliotecas que proporciona .NET. Pero en este enfoque, veremos a .NET como el conjunto de bibliotecas que uno puede usar para mejorar su código. En otras palabras, me mantendré al principio alejado de usarlos y me centraré en las características principales de F\# como lenguaje funcional. Desde la programación web hasta el aprendizaje automático, desde bases de datos hasta Windows, .NET tiene todo lo que necesita para que su programación sea una mejor experiencia, una vez que conozca las características principales que proporciona F\#.
+F\# es uno de los lenguajes proporcionados por .NET Framework (junto con C# y Visual Basic). Como tal, F\# está estrechamente integrado con todas las herramientas y bibliotecas que proporciona .NET. Pero en este enfoque, veré .NET como el conjunto de bibliotecas que uno puede usar para mejorar su código. En otras palabras, me mantendré alejado de usarlos y me centraré en las características principales de F\# como lenguaje funcional. Desde la programación web hasta el aprendizaje automático, desde bases de datos hasta Windows, .NET tiene todo lo que necesita para que su programación sea una mejor experiencia, una vez que conozca las características principales que proporciona F\#.
 
 Además, mi objetivo es mantenerlo lo más simple posible, porque me gustaría que el lector tenga el conjunto fundamental de herramientas del idioma para jugar. Con ese fin, algunos conceptos se dejan de lado a propósito y se revelarán en el futuro.
 
@@ -42,7 +34,7 @@ También puede instalar el lenguaje F\# y usar su editor diario, pero deberá in
 
 Además, esta serie está escrita como [Jupyter notebooks](https://jupyter.org/). Puede obtenerlos en [este repositorio de Github](https://github.com/fcolavecchia/fp-course). Las instrucciones sobre cómo configurar F\# como kernel de Notebook se pueden encontrar en [acá](https://github.com/dotnet/interactive/blob/main/docs/NotebookswithJupyter.md). .
 
-[Visual Studio Code](https://code.visualstudio.com/) tiene una extensión llamada [Ionide](https://ionide.io/Editors/Code/overview.html) para trabajar con F\#. Yo personalmente uso JetBrains Rider para mi programación diaria que admite F\#.
+[Visual Studio Code](https://code.visualstudio.com/) tiene una maravillosa extensión llamada [Ionide](https://ionide.io/Editors/Code/overview.html) para trabajar con F\#. Yo personalmente uso JetBrains Rider para mi programación diaria que admite F\#.
 
 También puede usar F\# con Visual Studio para Windows o MacOS, si está familiarizado con esa herramienta.
 
@@ -66,14 +58,14 @@ Y dado que cada expresión da como resultado un valor, uno debe administrar todo
 En F\# se dice que `let` _vincula_ una expresión a un identificador. Por ejemplo
 
 
-```fsharp
+```polyglot-notebook
 // Mi primer línea en F# es un comentario ¯\_(シ)_/¯
 let j = 1 // un entero 
 ```
 
 une la expresión literal `1` al nombre `a`. En el lado derecho del símbolo `=` (que actúa aquí como un operador vinculante), uno puede tener cualquier expresión válida:
 
-```fsharp
+```polyglot-notebook
 let a = 1.0 + 3.0 // punto flotante 
 let s = "this is a string" 
 let l = [1 ; 2 ; 3] // una lista de enteros
@@ -83,7 +75,7 @@ let t = true // Un tipo lógico (booleano)
 
 etcétera. Por supuesto, uno puede asociar un identificador usado antes con uno nuevo a través de una expresión:
 
-```fsharp
+```polyglot-notebook
 let b = a + 4.0 
 ```
 
@@ -93,14 +85,14 @@ En la línea anterior, agregamos cuatro a `a` y vinculamos el resultado de esta 
 
 Sin embargo, no puede vincular una expresión a un identificador que ya se ha utilizado:
 
-```fsharp
+```polyglot-notebook
 let q = 3
 let q = q + 1
 ```
 
 lo que responde por qué no se usa el término _variable_ en F\#: una vez que se obtiene el valor de una expresión, **no se puede cambiar**. En otras palabras, todos los valores son _inmutables_: una vez allí, no se pueden cambiar. No hay variables en el idioma, porque no hay nada que _varíe_. Puede crear tantos valores como desee, pero no puede cambiarlos:
 
-```fsharp
+```polyglot-notebook
 let q = 3
 let qq = q + 1
 ```
@@ -108,5 +100,3 @@ let qq = q + 1
 Las implicaciones de esto son profundas y es muy importante dejar que el concepto madure y se asiente, porque permea todo el código en F\# (y cualquier otro lenguaje funcional). De alguna manera, como todo es una expresión, programar en F\# es gestionar las expresiones para que resuelven nuestro problema. Se nombra una expresión (es decir, la vincula a un identificador), se la usa en otra expresión, se vincula su valor a un nuevo identificador y así sucesivamente.
 
 La perspectiva de un código como una larga lista de enlaces `let` es un poco desalentadora. Ahí es donde entran las funciones.
-
-<!-- > Aquí está el [Jupyter notebook de esta guía](https://github.com/fcolavecchia/fp-course/blob/main/en/Fundamentals.ipynb). -->
