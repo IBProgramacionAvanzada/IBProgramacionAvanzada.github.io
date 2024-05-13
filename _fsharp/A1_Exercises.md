@@ -1,16 +1,5 @@
----
-layout: post
-title: Ejercicios
-tagline: La máquina expendedora
-categories: 
-- F# as your first functional programming language
-tags:
-- fsharp
----
+## Ejercicios
 
-Ver [Trabajo Práctico 3](https://github.com/IBProgramacionAvanzada/c3p0/blob/main/TP3/TP3.md).
-
-<!-- 
 ### La aplicación de la máquina expendedora (1/3)
 
 A lo largo de varios ejercicios hemos indagado en el modelo de software que simule una máquina expendedora. 
@@ -23,8 +12,9 @@ Hemos visto
 En este ejercicio se propone integrar todos estos códigos en una sola aplicación de .NET. Para ello 
 
 - Diseñar cómo se va a organizar el código en módulos
-- Crear los archivos ya sea usando el comando `dotnet`, la extensión `Ionide` de VS Code.
+- Crear los archivos ya sea usando el comando `dotnet` o la extensión `Ionide` de VS Code.
   
+
 ### La aplicación de la máquina expendedora (2/3)
 
 Para verificar el trabajo apropiado de las funciones del código, es necesario escribir test unitarios. 
@@ -32,8 +22,9 @@ Para verificar el trabajo apropiado de las funciones del código, es necesario e
 - Analice cuáles son los test que se necesitan para cada parte del código.
 - Escriba los test que considere necesarios, usando `NUnit`.
 
+
 ### La aplicación de la máquina expendedora (3/3)
 
 Finalmente, para completar la aplicación:
 
-- Simule en el `main` una compra de alguno de los items de la máquina, con alguno de los métodos de pago a su elección. -->
+- Simule en el `main` una compra de alguno de los items de la máquina, con alguno de los métodos de pago a su elección.

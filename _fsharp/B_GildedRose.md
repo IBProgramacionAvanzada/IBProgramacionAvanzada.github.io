@@ -1,13 +1,4 @@
----
-layout: post
-title: El Kata de la Rosa Dorada
-tagline: Tests y refactoring
-categories: 
-- F# as your first functional programming language
-tags:
-- fsharp
----
-
+## El _Kata_ de la Rosa Dorada
 
 El presente _kata_ es un ejercicio ya clásico de _refactoring_: tenemos un programa que funciona, pero es necesario agregarle un caso nuevo de uso. Por razones que se explican por sí solas al leer el programa, se requiere reescribir parte del mismo.
 
@@ -16,6 +7,7 @@ Originalmente concebido por [@TerryHughes](https://twitter.com/TerryHughes) y [@
 En este notebook encontrará 
 - La descripción original de las especificaciones del código, los requerimientos y el nuevo caso de uso.
 - El código propiamente dicho como para explorar.
+- Algunos comentarios acerca de la programación orientada a objeto y la mutabilidad desde el punto de vista de F#.
 
 La misión es
 - Escribir tests para probar que efectivamente el código está funcionando para los casos de uso para los que fue diseñado.
@@ -29,7 +21,11 @@ para ello se provee de [este repositorio](https://github.com/fcolavecchia/Gilded
   
 Haga el fork correspondiente y happy refactoring!  
 
-## Especificaciones de la Rosa Dorada (Gilded Rose)
+
+
+
+
+### Especificaciones de la Rosa Dorada (Gilded Rose)
 
 Bienvenido al equipo de **Gilded Rose**.
 Como quizá sabes, somos una pequeña posada ubicada estratégicamente en una prestigiosa ciudad, atendida por la amable **Allison**.
@@ -40,7 +36,7 @@ Tenemos un sistema instalado que actualiza automáticamente el `inventario`.
 Este sistema fue desarrollado por un muchacho con poco sentido común llamado Leeroy, que ahora se dedica a nuevas aventuras.
 Tu tarea es agregar una nueva característica al sistema para que podamos comenzar a vender una nueva categoría de items.
 
-## Descripción preliminar
+### Descripción preliminar
 
 Pero primero, vamos a introducir el sistema:
 
@@ -62,7 +58,7 @@ Bastante simple, ¿no? Bueno, ahora es donde se pone interesante:
   * si faltan 5 días o menos, la `calidad` se incrementa en `3` unidades
   * luego de la `fecha de venta` la `calidad` cae a `0`
 
-## El requerimiento
+### El requerimiento
 
 Hace poco contratamos a un proveedor de artículos *conjurados mágicamente*.
 Esto requiere una actualización del sistema:
@@ -71,13 +67,17 @@ Esto requiere una actualización del sistema:
 
 Siéntete libre de realizar cualquier cambio al mensaje `updateQuality` y agregar el código que sea necesario, mientras que todo siga funcionando correctamente. Sin embargo, **no alteres el objeto `Item` ni sus propiedades** ya que pertenecen al goblin que está en ese rincón, que en un ataque de ira te va a liquidar de un golpe porque no cree en la cultura de código compartido.
 
-## Notas finales
+### Notas finales
 
 Para aclarar: un artículo nunca puede tener una `calidad` superior a `50`, sin embargo las Sulfuras siendo un artículo legendario posee una calidad inmutable de `80`.
 
-## El código
+## Clases y Mutabilidad
 
-```fsharp
+A continuación, puede encontrar las partes clave del código de este _kata_ que deben refactorizarse. Un vistazo revelará algunas características del lenguaje (y del ecosistema .NET) que deben introducirse. Esto se debe al hecho de que este código F# es una traducción _mutatis mutandis_ del código original escrito en C#. Inspeccionemos el código y revisemos las nuevas características que aparecen. Tenga en cuenta que F# es un lenguaje _flexible_ y puede permitirle escribir código mutable y clases orientadas a objetos. Aunque esto se aleja hasta cierto punto de un paradigma funcional más puro, es importante en este punto reconocer que uno puede lidiar con la mutabilidad en F#, la clave es tomar el control de la mutabilidad donde sea conveniente y proceder con estilo funcional, cuando es conveniente también.
+
+De todos modos, en este ejercicio, nuestro objetivo es transformar el código en una versión inmutable completamente funcional.
+
+```python
 open System.Collections.Generic
 
 type Item = 
@@ -88,7 +88,11 @@ type Item =
     }
 ```
 
-```fsharp
+Lo primero es lo primero, el tipo `Item` es un típico _record_, no hay gran novedad ahí. Pero estamos abriendo [`System.Collections.Generic`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic?view=net-7.0), que organiza el genérico tipo del que se derivan todos los tipos de colección en .NET.
+
+A continuación, se define una lista de elementos. Tenga en cuenta que esta no es nuestra lista habitual de F#, sino una `System.Collection.Generic.List` que es mutable y proporciona un método `.Add` que agrega un nuevo elemento a la lista, de forma mutable. Tenga en cuenta también el uso de la palabra clave `new`` para crear (invocar al constructor) de la 'Lista<Item>' vacía.
+
+```python
 let Items = new List<Item>()
 Items.Add({Name = "+5 Dexterity Vest"; SellIn = 10; Quality = 20})
 Items.Add({Name = "Aged Brie"; SellIn = 2; Quality = 0})
@@ -99,9 +103,52 @@ Items.Add({Name = "Backstage passes to a TAFKAL80ETC concert"; SellIn = 15; Qual
 Items.Add({Name = "Backstage passes to a TAFKAL80ETC concert"; SellIn = 10; Quality = 49})
 Items.Add({Name = "Backstage passes to a TAFKAL80ETC concert"; SellIn = 5; Quality = 49})
 Items.Add({Name = "Conjured Mana Cake"; SellIn = 3; Quality = 6})
+
+printfn "%A" Items
+
 ```
 
-```fsharp
+Para evitar la confusión entre estos dos tipos diferentes de listas, se usa el tipo `ResizeArray` en F#:
+
+```python
+let primes = ResizeArray<int>()
+primes.Add(2)
+primes.Add(3)
+primes.Add(5)
+// etc. 
+printfn "%A" primes
+```
+
+    seq [2; 3; 5]
+
+
+El tipo `ResizeArray` es mutable, y se usa `<-` como símbolo específico para cambiar un valor _in place_:
+
+```python
+primes[0] <- 7
+
+printfn "%A" primes
+```
+
+    seq [7; 3; 5]
+
+
+Se puede usar la palabra reservada `mutable` para especificar que un valor es mutable, obviamente:
+
+```python
+let mutable a = 3 
+printfn "original a: %A" a
+a <- 4
+printfn "mutated  a: %A" a
+```
+
+    original a: 3
+    mutated  a: 4
+
+
+Volviendo a Gilded Rose, aquí está el tipo `GildedRose`:
+
+```python
 type GildedRose(items:IList<Item>) =
     let Items = items
 
@@ -138,7 +185,42 @@ type GildedRose(items:IList<Item>) =
 
 ```
 
+Algunas cosas para notar:
+
+- El tipo `GildedRose` toma un valor `item` que es un ResizeArray de `Item`s como parámetro para su constructor.
+  
+- El código aprovecha la mutabilidad del ResizeArray de `Item`s  (es decir, `System.Collections.Generic.List`) en gran medida. Sin embargo, es claro que la lectura del código es difícil.
+- 
+- El tipo `GildedRose` tiene una función [_member_](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/members/methods), prácticamente igual que en un objeto típico de una clase en un lenguaje orientado a objetos. El método `UpdateQuality` es un método de instancia y se puede llamar como:
+
 ```fsharp
+let gildedRose = new GildedRose(Artículos)
+gildedRose.UpdateQuality()
+```
+
+También se puede tener un _miembro estático_, por ejemplo:
+
+```python
+type Point(x,y) = 
+    member this.X = x
+    member this.Y = y
+    static member Length (p:Point) = sqrt(float(p.X*p.X + p.Y*p.Y))
+
+let a = Point(1.0,2.0)
+printfn "the x coordinate of a is %A" a.X 
+printfn "the y coordinate of a is %A" a.Y 
+printfn "the length of a is %A" (Point.Length a) 
+
+```
+
+    the x coordinate of a is 1.0
+    the y coordinate of a is 2.0
+    the length of a is 2.236067977
+
+
+También podemos ver el uso de la construcción `for ..to ..do`, que es la construcción de bucle habitual. Esto también se usa en el código 'principal' del ejercicio:
+
+```python
 let app = new GildedRose(Items)
 for i = 0 to 30 do
     printfn "-------- day %d --------" i
@@ -149,9 +231,6 @@ for i = 0 to 30 do
     app.UpdateQuality()
 ```
 
-### El output
-
-```
     -------- day 0 --------
     name, sellIn, quality
     +5 Dexterity Vest, 10, 20
@@ -523,4 +602,17 @@ for i = 0 to 30 do
     Backstage passes to a TAFKAL80ETC concert, -20, 0
     Backstage passes to a TAFKAL80ETC concert, -25, 0
     Conjured Mana Cake, -27, 0
-```
+    
+
+
+## Cuándo usar clases, uniones, registros y estructuras
+
+Para mayor claridad, transcribo l[os siguientes párrafos de la documentación](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/classes#when-to-use-classes-unions-records-and-structures) que espero aclaren el uso de tipos y clases:
+
+Dada la variedad de tipos entre los que elegir, debe tener una buena comprensión de para qué se ha diseñado cada tipo a fin de seleccionar el tipo adecuado para una situación determinada. Las clases están diseñadas para su uso en contextos de programación orientados a objetos. La programación orientada a objetos es el paradigma dominante que se usa en las aplicaciones escritas para .NET Framework. Si el código de F# tiene que trabajar estrechamente con .NET Framework u otra biblioteca orientada a objetos, y especialmente si tiene que extender desde un sistema de tipos orientado a objetos, como una biblioteca de interfaz de usuario, es probable que las clases sean adecuadas.
+
+Si no está interoperando estrechamente con código orientado a objetos, o si está escribiendo código autocontenido y, por lo tanto, protegido de la interacción frecuente con código orientado a objetos, debe considerar la posibilidad de usar una combinación de clases, registros y uniones discriminadas. Una unión discriminada única y bien pensada, junto con código de coincidencia de patrones adecuado, se suele poder usar como una alternativa más sencilla a una jerarquía de objetos. Para obtener información sobre las uniones discriminadas, vea Uniones discriminadas.
+
+Los registros tienen la ventaja de ser más sencillos que las clases, pero no son adecuados cuando las demandas de un tipo superan lo que se puede lograr con su simplicidad. Los registros son básicamente agregados simples de valores, sin constructores independientes que puedan realizar acciones personalizadas, sin campos ocultos y sin implementaciones de herencia o interfaz. Aunque se pueden agregar miembros como propiedades y métodos a los registros para que su comportamiento sea más complejo, los campos almacenados en un registro siguen siendo un agregado simple de valores. Para obtener más información sobre los registros, vea Registros.
+
+Las estructuras también son útiles para pequeños agregados de datos, pero difieren de las clases y los registros en que son tipos de valores de .NET. Las clases y los registros son tipos de referencias de .NET. La semántica de los tipos de valores y los tipos de referencias se diferencia en que los tipos de valores se pasan por valor. Esto significa que se copian bit a bit cuando se pasan como un parámetro o se devuelven de una función. También se almacenan en la pila o, si se usan como campo, se insertan dentro del objeto primario en lugar de almacenarse en su propia ubicación independiente en el montón. Por lo tanto, las estructuras son adecuadas para los datos a los que se accede con frecuencia cuando la sobrecarga de acceder al montón es un problema. Para obtener más información sobre las estructuras, vea Estructuras.

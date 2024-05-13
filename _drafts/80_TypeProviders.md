@@ -407,8 +407,7 @@ Finalmente, existe un _type provider_  para leer datos en formato JSON (JavaScri
 
 ```fsharp
 [<Literal>]
-let tvUrl = "https://raw.githubusercontent.com/mganitombalak/training/master/tv-shows.json"
-```
+let tvUrl = "https://raw.githubusercontent.com/mganitombalak/training/master/DATA/tv-shows.json"```
 
 ```fsharp
 type TvListing = JsonProvider<tvUrl>

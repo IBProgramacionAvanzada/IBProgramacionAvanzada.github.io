@@ -1,13 +1,4 @@
----
-layout: post
-title: Advent of Code 2022, día 2 
-tagline: Advent of code  
-categories: 
-- F# as your first functional programming language
-tags:
-- fsharp
----
-
+## Advent of Code 2022 - Day 2
 
 
 [Advent of Code](https://adventofcode.com/2022/about) es una serie de ejercicios de programación que se publican antes de las navidades de cada año, de allí su 
@@ -57,4 +48,5 @@ Ahora con la guía de estrategia ultrasecreta correctamente descifrada, se obten
 Siguiendo las nuevas instrucciones del duende para la segunda columna, ¿cuál sería tu puntaje total si todo sale exactamente de acuerdo con tu guía de estrategia?
 
 El archivo completo con el inventario de caloría de los Elfos se encuentra [acá](https://github.com/IBProgramacionAvanzada/IBProgramacionAvanzada.github.io/tree/master/assets/day2.input).
+
 

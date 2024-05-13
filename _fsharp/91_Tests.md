@@ -1,18 +1,10 @@
----
-layout: post
-title: Tests
-tagline: 
-categories: 
-- F# as your first functional programming language
-tags:
-- fsharp
----
+##
 
-### Tests
+## Tests
 
 Todo programa tiene que ser probado para confirmar que hace lo que uno dice que hace. Una manera de hacerlo es correr el programa completo cada vez que se introduce una modificación significativa. Este modelo de trabajo es a todas luces costosísimo, particularmente en el tiempo que lleva realizar una y otra vez este procedimiento, y se vuelve inmanejable a medida que la aplicación crece en complejidad. 
 
-Para eso existen [distintos tipos de pruebas (_tests_)](https://programacionymas.com/blog/tipos-de-testing-en-desarrollo-de-software) que se pueden programar para que la computadora los realice automáticamente. 
+Para eso existen [distintos tipos de pruebas o _tests_](https://programacionymas.com/blog/tipos-de-testing-en-desarrollo-de-software) que se pueden programar para que la computadora los realice automáticamente. 
 
 Un test consiste esencialmente en correr una parte del código con ciertos datos (que pueden ser reales o sintéticos),
 y comparar el resultado de esa corrida con uno conocido.
@@ -59,7 +51,7 @@ con lo cual, nuestra estructura de directorios quedaría así:
 Ahora vamos a crear un proyecto de NUnit usando:
 
 ```bash
-dotnet new nunit --lang F# -o tests/MyTests
+dotnet new nunit -lang F# -o tests/MyTests
 ``` 
 con lo cual tendremos:
 ```bash

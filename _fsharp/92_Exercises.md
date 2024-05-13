@@ -1,16 +1,9 @@
----
-layout: post
-title: Ejercicios
-tagline: Tests
-categories: 
-- F# as your first functional programming language
-tags:
-- fsharp
----
+## Ejercicios
 
 ### El video de la semana
 
-[_The lazy programmer's guide to writing 1000's of tests_,Scott Wlaschin](https://www.youtube.com/watch?v=IYzDFHx6QPY&ab_channel=NDCConferences)
+[_The lazy programmer's guide to writing 1000's of tests_, Scott Wlaschin](https://www.youtube.com/watch?v=IYzDFHx6QPY&ab_channel=NDCConferences)
+
 
 ### Interpolación Lineal
 
@@ -44,6 +37,7 @@ Entonces:
 
 - Modifique los tests para contemplar los casos anteriores.
 
+
 #### Extrapolación
 
 Nos avisan ahora que el código tiene que contemplar el caso de la extrapolación,
@@ -56,3 +50,4 @@ Modifique la biblioteca y los tests de acuerdo a este nuevo requerimiento.
 
 > Tenga en cuenta que no es necesario crear un proyecto que _use_ la biblioteca,
 > basta con el proyecto para testearla, y el de la biblioteca propiamente dicha.
+
