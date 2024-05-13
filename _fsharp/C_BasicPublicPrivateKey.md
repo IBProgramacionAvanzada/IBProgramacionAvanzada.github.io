@@ -1,4 +1,12 @@
-# Criptografía con clave pública-privada
+---
+layout: post
+title: Criptografía con clave pública-privada
+tagline: Criptografía
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
 
 El algoritmo para encriptar una serie de datos a través de una clave pública-privada consiste en encontrar dos números primos al azar (usualmente grandes) $p$ y $q$ de modo tal que $n = p \times q$.
 

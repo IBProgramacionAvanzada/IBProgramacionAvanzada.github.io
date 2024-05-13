@@ -1,6 +1,15 @@
-# Graficar datos
+---
+layout: post
+title: Graficar datos
+tagline: 
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
 
-En el último episodio utilizamos un proveedor de tipo CSV para obtener un conjunto de datos  interesantes sobre planetas fuera de nuestro sistema solar.
+
+En el último episodio utilizamos un proveedor de tipo CSV para obtener un conjunto de datos  interesantes sobre planetas fuera de nuestro sistema sola r.
 
 Tracemos esos datos.
 

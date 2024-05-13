@@ -1,6 +1,13 @@
-##
+---
+layout: post
+title: Tests
+tagline: 
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
 
-## Tests
 
 Todo programa tiene que ser probado para confirmar que hace lo que uno dice que hace. Una manera de hacerlo es correr el programa completo cada vez que se introduce una modificación significativa. Este modelo de trabajo es a todas luces costosísimo, particularmente en el tiempo que lleva realizar una y otra vez este procedimiento, y se vuelve inmanejable a medida que la aplicación crece en complejidad. 
 

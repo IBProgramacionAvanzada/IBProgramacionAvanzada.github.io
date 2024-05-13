@@ -1,3 +1,13 @@
+---
+layout: post
+title: Control deslizante en la figura
+tagline: 
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
+
 # Agregar un control deslizante al censo de exoplanetas
 
 En la última parte de este episodio, terminaremos nuestra copia del gráfico del _Censo de exoplanetas_ que se puede encontrar en [Sitio de la NASA sobre exoplanetas](https://exoplanets.nasa.gov/discovery/discoveries-dashboard/):

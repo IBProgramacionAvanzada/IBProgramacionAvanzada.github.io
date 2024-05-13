@@ -1,4 +1,12 @@
-## Ejercicios
+---
+layout: post
+title: Ejercicios
+tagline: 
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
 
 ### El video de la semana
 
