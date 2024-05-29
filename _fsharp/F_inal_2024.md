@@ -6,10 +6,10 @@ Le damos la bienvenida a  [Terminal Frost](https://open.spotify.com/track/4hO2y5
 una nueva empresa de juegos de video, interesada en reversionar clásicos juegos _arcade_ del siglo pasado. Debido al éxito
 rotundo de nuestro lanzamiento en 2023, nos proponemos desarrollar una segunda lista de juegos:
 
-- [Q*Bert](https://www.youtube.com/watch?v=HKIbhaQfs-A), [jugar acá](https://www.playretrogames.com/5659-q-bert)
-- [Space Invaders](https://www.youtube.com/watch?v=uGjgxwiemms),[jugar acá](https://www.playretrogames.com/3022-space-invaders-the-original-game)
-- [Asteroids](https://www.youtube.com/watch?v=WYSupJ5r2zo), [jugar acá](https://www.playretrogames.com/7937-asteroids)
-- [Frogger](https://www.youtube.com/watch?v=WNrz9_Fe-Us&t=108s), [jugar acá](https://www.playretrogames.com/3814-frogger)
+- [Q*Bert](https://www.youtube.com/watch?v=HKIbhaQfs-A), [jugarlo acá](https://www.playretrogames.com/5659-q-bert)
+- [Space Invaders](https://www.youtube.com/watch?v=uGjgxwiemms), [jugarlo acá](https://www.playretrogames.com/3022-space-invaders-the-original-game)
+- [Asteroids](https://www.youtube.com/watch?v=WYSupJ5r2zo), [jugarlo acá](https://www.playretrogames.com/7937-asteroids)
+- [Frogger](https://www.youtube.com/watch?v=WNrz9_Fe-Us&t=108s), [jugarlo acá](https://www.playretrogames.com/3814-frogger)
 
 
 Hemos recibido excelentes referencias de las habilidades de su equipo en la programación funcional
