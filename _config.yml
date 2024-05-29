@@ -81,11 +81,16 @@ collections:
       - 70_VendingMachineReadFood.md
       - 73_Exercises.md 
       - 80_TypeProviders.md
-      - 83_Exercises.md 
+      - 81_Exercises.md
+      - 82_Exoplanets.md
+      - 83_Plotting.md
+      - 84_AddSliderPlotly.md 
+      - 85_Exercises.md 
       - 90_Dotnet.md
-      - 93_Exercises.md
-      - A0_Tests.md 
-      - A3_Exercises.md 
+      - 91_Tests.md
+      - 92_Exercises.md
+      - A0_AdventOfCodeDay2.md 
+      - A1_Exercises.md 
       - B_GildedRose.md
       - C_AdventOfCodeDay2.md
       - D_SAT_Oracle.md

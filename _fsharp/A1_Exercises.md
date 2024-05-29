@@ -1,4 +1,12 @@
-## Ejercicios
+---
+layout: post
+title: Ejercicios
+tagline: Más de la máquina expendedora
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
 
 ### La aplicación de la máquina expendedora (1/3)
 

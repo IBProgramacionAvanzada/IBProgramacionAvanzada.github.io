@@ -1,4 +1,12 @@
-## El _Kata_ de la Rosa Dorada
+---
+layout: post
+title: El _Kata_ de la Rosa Dorada
+tagline: Refactoring
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
 
 El presente _kata_ es un ejercicio ya clásico de _refactoring_: tenemos un programa que funciona, pero es necesario agregarle un caso nuevo de uso. Por razones que se explican por sí solas al leer el programa, se requiere reescribir parte del mismo.
 

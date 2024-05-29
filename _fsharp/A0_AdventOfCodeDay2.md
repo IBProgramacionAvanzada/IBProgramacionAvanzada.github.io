@@ -1,4 +1,12 @@
-## Advent of Code 2022 - Day 2
+---
+layout: post
+title: Advent of Code 2022 - Día 2
+tagline: Advent of Code
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
 
 
 [Advent of Code](https://adventofcode.com/2022/about) es una serie de ejercicios de programación que se publican antes de las navidades de cada año, de allí su 

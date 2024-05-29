@@ -1,6 +1,22 @@
-# Explorando exoplanetas con proveedores de tipos y Plotly
+---
+layout: post
+title: Explorando exoplanetas con proveedores de tipos y Plotly
+tagline: 
+categories: 
+- F# as your first functional programming language
+tags:
+- fsharp
+---
 
+ 
 Este es un nuevo episodio de dos partes del curso [Haga de F# su primer lenguaje de programación funcional](https://github.com/fcolavecchia/fp-course-public). En la primera parte revisamos el uso de un proveedor de tipos (un _Type Provider_) (gracias a [`FSharp.Data`](https://fsprojects.github.io/FSharp.Data/)), mientras exploramos cómo trazar los datos usando [Plotly](https://plotly.com/fsharp/). Este es un flujo de trabajo típico para el procesamiento en ciencias de datos.
+
+
+
+
+
+
+
 
 
 ## Obteniendo los datos
