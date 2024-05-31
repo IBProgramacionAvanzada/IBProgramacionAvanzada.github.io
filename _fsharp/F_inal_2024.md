@@ -1,3 +1,13 @@
+---
+layout: post
+title: Examen final (2024)
+tagline:
+categories:
+- F# as your first functional programming language
+tags:
+- fsharp
+---
+
 ## Final de Programación Avanzada 2024
 
 Estimado equipo:
